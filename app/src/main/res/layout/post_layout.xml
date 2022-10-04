@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="instagramPost"
+            type="com.guruthedev.instagram.dataClass.Post" />
+
+    </data>
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/post_header_layout"
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/logo"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:src="@{instagramPost.logo}" />
+
+            <TextView
+                android:id="@+id/brand_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/logo"
+                android:text="@{instagramPost.name}"
+                android:textColor="@color/colorBlack"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/menu_img"
+                android:layout_width="24dp"
+                android:layout_height="22dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/dots" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/post_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@{instagramPost.photo}"
+            android:layout_below="@+id/post_header_layout" />
+
+        <RelativeLayout
+            android:id="@+id/post_footer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/post_img">
+
+            <ImageView
+                android:id="@+id/heart"
+                android:layout_width="@dimen/footer_menu_size"
+                android:layout_height="@dimen/footer_menu_size"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/heart" />
+
+            <ImageView
+                android:id="@+id/reply"
+                android:layout_width="@dimen/footer_menu_size"
+                android:layout_height="@dimen/footer_menu_size"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:layout_toEndOf="@+id/heart"
+                android:src="@drawable/ic_baseline_reply_24" />
+
+            <ImageView
+                android:id="@+id/send"
+                android:layout_width="@dimen/footer_menu_size"
+                android:layout_height="@dimen/footer_menu_size"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:layout_toEndOf="@+id/reply"
+                android:src="@drawable/send_icon" />
+
+            <ImageView
+                android:id="@+id/bookmark"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/ic_mini_bookmark" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/likes_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/post_footer_layout"
+            android:layout_marginStart="15dp"
+            android:textSize="13sp"
+            android:text="@{instagramPost.likes}"
+            android:textStyle="bold"
+            android:textColor="@color/gray" />
+
+        <TextView
+            android:id="@+id/description_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/likes_txt"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp"
+            android:text="l"
+            android:textSize="13sp"
+            android:textColor="@color/gray" />
+
+        <RelativeLayout
+            android:id="@+id/comments_latout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/description_txt"
+            android:layout_marginTop="10dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_pic"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/profile" />
+
+            <EditText
+                android:id="@+id/comment_edt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toEndOf="@+id/profile_pic"
+                android:background="@null"
+                android:hint="@string/comment"
+                android:textColor="@color/gray"
+                android:textSize="13sp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>
