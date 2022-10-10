@@ -56,5 +56,4 @@ fun loadImageUrlForStory(
         .apply(circleCropTransform())
         .diskCacheStrategy(DiskCacheStrategy.ALL)
         .into(imageView)
-
 }

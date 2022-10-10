@@ -10,11 +10,10 @@ import android.text.style.ClickableSpan
 import android.view.View
 import android.widget.TextView
 
-
 fun addReadMore(text: String, textView: TextView, context: Context) {
     val textStarts = 0
-    val textLength = text.length
-    val spannableString = SpannableString(text.substring(textStarts, textLength) + "...read more")
+    val spannableString =
+        SpannableString(text.substring(textStarts, getWordCount(text)) + "...read more")
     val clickableSpan: ClickableSpan = object : ClickableSpan() {
         override fun onClick(view: View) {
             addReadLess(text, textView, context)
@@ -35,6 +34,11 @@ fun addReadMore(text: String, textView: TextView, context: Context) {
     textView.text = spannableString
     textView.movementMethod = LinkMovementMethod.getInstance()
 }
+
+fun getWordCount(str: String): Int {
+    return str.split("\\s+".toRegex()).size
+}
+
 
 fun addReadLess(text: String, textView: TextView, context: Context) {
     val spannableString = SpannableString("$text read less")

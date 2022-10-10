@@ -5,12 +5,21 @@
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/drawable-v24/ic_home_black_24dp.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bottom_nav_icon_color.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/edittext.xml" value="0.1" />
+        <entry key="app/src/main/res/layout-sw600dp/activity_sign_up.xml" value="0.15437158469945356" />
+        <entry key="app/src/main/res/layout/activity_account_settings.xml" value="0.2187347412109375" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.2605515183151902" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.2011444091796875" />
+        <entry key="app/src/main/res/layout/divider_layout.xml" value="0.23363386884593862" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_notification.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.3132827758789063" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.1" />
         <entry key="app/src/main/res/layout/post_adapter_layout.xml" value="0.20117797851562508" />
         <entry key="app/src/main/res/layout/post_layout.xml" value="0.5620836395578286" />
-        <entry key="app/src/main/res/layout/post_list_item.xml" value="0.18095238095238095" />
+        <entry key="app/src/main/res/layout/post_list_item.xml" value="0.15936737060546874" />
         <entry key="app/src/main/res/layout/story_items.xml" value="0.14646464646464646" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>

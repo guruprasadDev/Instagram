@@ -33,36 +33,31 @@ class PostAdapter(private val postList: ArrayList<Post>) :
     override fun onBindViewHolder(viewHolder: PostViewHolder, feedPost: Int) {
         val post = postList[feedPost]
         val binding = viewHolder.postBinding
-
+        binding.instagramPost= post
         binding.apply {
-            tvUsername.text = post.name
-            likesTxt.text = post.likes + " " + "likes"
-            descriptionTxt.text = post.description
-
-            context?.let {
+        context?.let {
+                addReadMore(
+                    text = post.description,
+                    textView = descriptionTxt,
+                    context = it
+                )
                 loadImageUrlLogo(
                     imageURL = post.logo,
                     context = it,
                     width = 800,
                     height = 400,
-                    imageView = binding.imgProfile
+                    imageView = imgProfile
                 )
                 loadImageUrl(
                     imageURL = post.photo,
                     context = it,
                     width = 1200,
                     height = 1000,
-                    imageView = binding.postImg
-                )
-                addReadMore(
-                    text = post.description,
-                    textView = binding.descriptionTxt,
-                    context = it
+                    imageView = postImg
                 )
             }
         }
     }
-
     class PostViewHolder(binding: PostListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val postBinding = binding

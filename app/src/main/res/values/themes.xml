@@ -13,4 +13,28 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="EditText_SignUp_Common" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/edittext_shape</item>
+        <item name="android:layout_marginTop">@dimen/marginMediumSmall</item>
+        <item name="android:layout_marginStart">@dimen/thirty</item>
+        <item name="android:layout_marginEnd">@dimen/thirty</item>
+        <item name="android:fontFamily">sans-serif-condensed-medium</item>
+        <item name="android:color">@color/colorBlue</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Button_common">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/thirty</item>
+        <item name="android:layout_marginEnd">@dimen/thirty</item>
+        <item name="android:layout_marginTop">@dimen/thirty</item>
+        <item name="android:backgroundTint">@color/colorBlue</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

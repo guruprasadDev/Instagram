@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".credentials.LoginActivity">
+
+        <ImageView
+            android:id="@+id/instagramText"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="160dp"
+            android:padding="@dimen/marginMediumBig"
+            android:src="@drawable/instagram"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edtEmail"
+            style="@style/EditText_SignUp_Common"
+            android:hint="@string/email"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/edtPassword"
+            style="@style/EditText_SignUp_Common"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/LoginBtn"
+            style="@style/Button_common"
+            android:text="@string/log_in" />
+
+
+        <TextView
+            android:id="@+id/ForgetDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/marginSmall"
+            android:text="@string/forgotten_your_login_details"
+            android:textSize="@dimen/fourteen" />
+
+        <include
+            layout="@layout/divider_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/marginMediumBig" />
+
+        <Button
+            android:id="@+id/facebookSignUpBtn"
+            style="@style/Button_common"
+            android:layout_marginTop="@dimen/marginMediumBig"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up_with_facebook" />
+
+        <TextView
+            android:id="@+id/signUpBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/hundred"
+            android:text="@string/don_t_have_an_account"
+            android:textSize="@dimen/sixteenSp" />
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".credentials.SignUpActivity">
+
+        <ImageView
+            android:id="@+id/instagramText"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/hundred"
+            android:padding="@dimen/marginMediumBig"
+            android:src="@drawable/instagram" />
+
+        <TextView
+            android:id="@+id/signText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/marginMediumSmall"
+            android:text="@string/sign_up_dec"
+            android:textAlignment="center"
+            android:textSize="@dimen/sixteenSp" />
+
+        <Button
+            android:id="@+id/facebookSignUpBtn"
+            style="@style/Button_common"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up_with_facebook" />
+
+        <include
+            layout="@layout/divider_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/marginMediumBig" />
+
+        <EditText
+            android:id="@+id/edtFullName"
+            style="@style/EditText_SignUp_Common"
+            android:hint="@string/full_name"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/edtUsername"
+            style="@style/EditText_SignUp_Common"
+            android:hint="@string/username"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/edtEmail"
+            style="@style/EditText_SignUp_Common"
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
+
+
+        <EditText
+            android:id="@+id/edtPassword"
+            style="@style/EditText_SignUp_Common"
+            android:hint="Password"
+            android:inputType="textPassword"
+            app:layout_constraintTop_toBottomOf="@id/edtEmail" />
+
+        <Button
+            android:id="@+id/signUpBtn"
+            style="@style/Button_common"
+            android:text="@string/sign_up" />
+
+        <TextView
+            android:id="@+id/txtTermsAndPrivacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/marginMediumBig"
+            android:padding="@dimen/marginMediumSmall"
+            android:text="@string/privacy_policy"
+            android:textAlignment="center"
+            android:textSize="@dimen/sixteenSp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/signUpBtn" />
+
+
+        <TextView
+            android:id="@+id/LoginBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/marginMediumSmall"
+            android:layout_marginBottom="1dp"
+            android:text="@string/have_an_account"
+            android:textSize="@dimen/sixteenSp" />
+
+    </LinearLayout>
+</layout>

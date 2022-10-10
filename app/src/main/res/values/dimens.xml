@@ -12,9 +12,12 @@
     <dimen name="marginSmall">4dp</dimen>
     <dimen name="marginMediumSmall">8dp</dimen>
     <dimen name="marginMediumBig">16dp</dimen>
+    <dimen name="marginTwenty">20dp</dimen>
     <dimen name="marginHigh">32dp</dimen>
     <dimen name="fifty">50dp</dimen>
     <dimen name="hundred">100dp</dimen>
     <dimen name="sixty">60dp</dimen>
     <dimen name="sevFive">75dp</dimen>
+    <dimen name="sixteenSp">16sp</dimen>
+
 </resources>
