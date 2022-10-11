@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
         val spanAbleText = signUpText.getSpanValues(text, clickableText, Color.RED) {
             startActivity(Intent(this@LoginActivity, SignUpActivity::class.java))
         }
-        binding.signUpTxtBtn.apply {
+        binding.signUpBtnTxt.apply {
             setText(spanAbleText, TextView.BufferType.SPANNABLE)
             movementMethod = LinkMovementMethod.getInstance()
             highlightColor = Color.TRANSPARENT

@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/small_16dp"
-            android:padding="@dimen/small_8dp"
+            android:padding="@dimen/padding_medium_small_8dp"
             android:text="@string/privacy_policy"
             android:textAlignment="center"
             android:textSize="@dimen/text_size_16sp"
@@ -87,7 +87,7 @@
 
 
         <TextView
-            android:id="@+id/loginTxtBtn"
+            android:id="@+id/loginBtnTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

@@ -1,6 +1,13 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
 
+    <dimen name="padding_small_4dp">4dp</dimen>
+    <dimen name="padding_medium_small_8dp">8dp</dimen>
+    <dimen name="padding_medium_16dp">16dp</dimen>
+    <dimen name="padding_medium_large_20dp">32dp</dimen>
+    <dimen name="padding_large">64</dimen>
+
+
     <dimen name="small_0dp">0dp</dimen>
     <dimen name="small_1dp">1dp</dimen>
     <dimen name="small_4dp">4dp</dimen>
@@ -14,7 +21,7 @@
     <dimen name="normal_36dp">36dp</dimen>
     <dimen name="normal_40dp">40dp</dimen>
     <dimen name="normal_44dp">44dp</dimen>
-    <dimen name="normal_48">48dp</dimen>
+    <dimen name="normal_48dp">48dp</dimen>
     <dimen name="normal_52dp">52dp</dimen>
     <dimen name="normal_54dp">54dp</dimen>
     <dimen name="normal_58dp">58dp</dimen>
@@ -39,6 +46,8 @@
     <dimen name="large_130dp">130dp</dimen>
     <dimen name="large_160dp">160dp</dimen>
     <dimen name="large_200dp">200dp</dimen>
+    <dimen name="large_240dp">240dp</dimen>
+    <dimen name="large_110dp">110dp</dimen>
 
 
     <dimen name="text_size_12sp">12sp</dimen>
@@ -49,8 +58,6 @@
     <dimen name="text_size_24sp">24sp</dimen>
     <dimen name="text_size_28sp">28sp</dimen>
     <dimen name="text_size_30sp">30sp</dimen>
-    <dimen name="large_240dp">240dp</dimen>
-    <dimen name="large_110dp">110dp</dimen>
 
 
 </resources>

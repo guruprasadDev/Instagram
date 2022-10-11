@@ -1,25 +1,12 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.Instagram" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryVariant">@color/colorPrimary</item>
-        <item name="colorOnPrimary">@color/colorAccent</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/colorWhite</item>
-        <item name="colorSecondaryVariant">@color/colorBlack</item>
-        <item name="colorOnSecondary">@color/colorBlue</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
-    </style>
-
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
     <style name="EditText_SignUp_Common" parent="Widget.AppCompat.EditText">
         <item name="android:background">@drawable/edittext_shape</item>
         <item name="android:layout_marginTop">@dimen/small_8dp</item>
+        <item name="android:layout_marginHorizontal">@dimen/normal_32dp</item>
         <item name="android:fontFamily">sans-serif-condensed-medium</item>
         <item name="android:color">@color/colorBlue</item>
-        <item name="android:padding">@dimen/padding_medium_16dp</item>
+        <item name="android:padding">16dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
@@ -27,11 +14,11 @@
     <style name="Button_common">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginHorizontal">@dimen/normal_32dp</item>
         <item name="android:layout_marginTop">@dimen/small_28dp</item>
         <item name="android:backgroundTint">@color/colorBlue</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textStyle">bold</item>
     </style>
-
 </resources>

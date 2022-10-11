@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
-import com.guruthedev.instagram.adapter.PostAdapter
-import com.guruthedev.instagram.adapter.StoriesAdapter
+import com.guruthedev.instagram.ui.adapter.PostAdapter
+import com.guruthedev.instagram.ui.adapter.StoriesAdapter
 import com.guruthedev.instagram.dataClass.InstaStatus
 import com.guruthedev.instagram.dataClass.Post
 import com.guruthedev.instagram.databinding.FragmentHomeBinding

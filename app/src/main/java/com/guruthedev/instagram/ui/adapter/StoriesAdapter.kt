@@ -1,4 +1,4 @@
-package com.guruthedev.instagram.adapter
+package com.guruthedev.instagram.ui.adapter
 
 
 import android.content.Context
