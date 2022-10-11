@@ -1,4 +1,4 @@
-package com.guruthedev.instagram.fragments
+package com.guruthedev.instagram.ui.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,8 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.guruthedev.instagram.AccountSettingsActivity
-import com.guruthedev.instagram.R
-import com.guruthedev.instagram.databinding.FragmentHomeBinding
 import com.guruthedev.instagram.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {

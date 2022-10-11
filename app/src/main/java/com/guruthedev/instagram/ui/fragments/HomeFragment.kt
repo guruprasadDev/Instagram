@@ -1,4 +1,4 @@
-package com.guruthedev.instagram.fragments
+package com.guruthedev.instagram.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +14,7 @@ import com.guruthedev.instagram.dataClass.Post
 import com.guruthedev.instagram.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
-    private lateinit var binding: FragmentHomeBinding
+    private lateinit var binding:FragmentHomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

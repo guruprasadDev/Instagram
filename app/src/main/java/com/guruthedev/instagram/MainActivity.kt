@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationBarView
 import com.guruthedev.instagram.databinding.ActivityMainBinding
-import com.guruthedev.instagram.fragments.*
+import com.guruthedev.instagram.ui.fragments.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

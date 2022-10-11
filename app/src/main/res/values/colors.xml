@@ -7,6 +7,6 @@
     <color name="colorDarkBlack">#000000</color>
     <color name="colorBlue">#3997f2</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="gray">#DC939191</color>
-    <color name="lightGray">#DCCCCACA</color>
+    <color name="colorGray">#DC939191</color>
+    <color name="ColorLightGray">#DCCCCACA</color>
 </resources>

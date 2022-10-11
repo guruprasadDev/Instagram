@@ -1,4 +1,4 @@
-package com.guruthedev.instagram.fragments
+package com.guruthedev.instagram.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
