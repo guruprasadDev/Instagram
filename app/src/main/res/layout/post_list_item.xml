@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="instagramPost"
             type="com.guruthedev.instagram.dataClass.Post" />
@@ -20,7 +19,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/small_16dp"
             android:layout_marginTop="@dimen/small_16dp"
-            android:src="@{instagramPost.logo}"
+            app:loadImage="@{instagramPost.logo}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -9,20 +9,23 @@
         <entry key="app/src/main/res/drawable/edittext.xml" value="0.1" />
         <entry key="app/src/main/res/layout-sw600dp/activity_sign_up.xml" value="0.15437158469945356" />
         <entry key="app/src/main/res/layout/activity_account_settings.xml" value="0.2187347412109375" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.12198791503906253" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19015045166015626" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.24951782226562497" />
         <entry key="app/src/main/res/layout/divider_layout.xml" value="0.3788548161115636" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.44301147460937507" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_notification.xml" value="0.33966827392578125" />
         <entry key="app/src/main/res/layout/fragment_post.xml" value="0.17028985507246377" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.2715057373046875" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.22972869873046878" />
         <entry key="app/src/main/res/layout/post_adapter_layout.xml" value="0.20117797851562508" />
         <entry key="app/src/main/res/layout/post_layout.xml" value="0.5620836395578286" />
         <entry key="app/src/main/res/layout/post_list_item.xml" value="0.17003367003367004" />
         <entry key="app/src/main/res/layout/story_items.xml" value="0.1" />
-        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/switch_item.xml" value="0.2942708333333333" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.2627105712890625" />
       </map>
     </option>
   </component>

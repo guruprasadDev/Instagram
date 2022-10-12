@@ -33,7 +33,7 @@ class PostAdapter(private val postList: ArrayList<Post>) :
     override fun onBindViewHolder(viewHolder: PostViewHolder, feedPost: Int) {
         val post = postList[feedPost]
         val binding = viewHolder.postBinding
-        binding.instagramPost= post
+        binding.instagramPost = post
         binding.apply {
         context?.let {
                 addReadMore(

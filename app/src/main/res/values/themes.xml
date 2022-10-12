@@ -19,7 +19,7 @@
         <item name="android:layout_marginTop">@dimen/small_8dp</item>
         <item name="android:fontFamily">sans-serif-condensed-medium</item>
         <item name="android:color">@color/colorBlue</item>
-        <item name="android:padding">@dimen/padding_medium_16dp</item>
+        <item name="android:padding">@dimen/padding_medium</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>

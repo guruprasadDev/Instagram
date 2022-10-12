@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".ui.auth.LoginFragment">
+
+            <ImageView
+                android:id="@+id/instagramText"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/large_100dp"
+                android:layout_marginTop="@dimen/large_130dp"
+                android:padding="@dimen/padding_medium"
+                android:src="@drawable/instagram"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/emailEdt"
+                style="@style/EditText_SignUp_Common"
+                android:hint="@string/hint_email"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/passwordEdt"
+                style="@style/EditText_SignUp_Common"
+                android:hint="@string/hint_password"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/loginBtn"
+                style="@style/Button_common"
+                android:text="@string/login_btn_txt" />
+
+
+            <TextView
+                android:id="@+id/forgottenLoginDetailsTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/small_4dp"
+                android:text="@string/forgotten_your_login_details"
+                android:textSize="@dimen/text_size_12sp" />
+
+            <include
+                layout="@layout/divider_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/normal_36dp" />
+
+            <Button
+                android:id="@+id/facebookSignUpBtn"
+                style="@style/Button_common"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_28dp"
+                android:text="@string/sign_up_with_facebook" />
+
+            <TextView
+                android:id="@+id/signUpBtnTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/large_110dp"
+                android:text="@string/don_t_have_an_account_txt"
+                android:textSize="@dimen/text_size_16sp" />
+        </LinearLayout>
+    </ScrollView>
+</layout>

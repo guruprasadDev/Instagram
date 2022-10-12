@@ -10,12 +10,14 @@
     <string name="logout_btn_txt">Logout</string>
     <string name="title_or">OR</string>
     <string name="privacy_policy">By signing up, you agree to our <b>Terms \n &amp; Privacy Policy.</b></string>
-    <string name="login_have_an_account">Have an account? <font color="#3997f2"><b>Log in</b></font></string>
+    <string name="login_have_an_account_txt">Have an account?</string>
+    <string name="login_txt"><font color="#3997f2"><b>Log in</b></font></string>
     <string name="sign_up_with_facebook">Sign Up With Facebook</string>
     <string name="sign_up_dec">Sign up to see photos and videos from your \n friends.</string>
     <string name="get_help_with_logging_in">Get help with logging in.</string>
     <string name="forgotten_your_login_details">Forgotten your login details <font color="#3997f2"><b>Get help with logging in.</b></font></string>
-    <string name="don_t_have_an_account">Don\'t have an account? <font color="#3997f2"><b>Sign Up</b></font></string>
+    <string name="don_t_have_an_account_txt">Don\'t have an account? </string>
+    <string name="sign_up_txt"><font color="#3997f2"><b>Sign Up</b></font></string>
     <string name="hint_username">username</string>
     <string name="hint_full_name">Full Name</string>
     <string name="hint_email">Email</string>

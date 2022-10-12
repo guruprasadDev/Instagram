@@ -193,7 +193,6 @@
                             android:layout_height="@dimen/normal_44dp"
                             android:layout_marginStart="@dimen/small_8dp"
                             android:layout_marginTop="@dimen/small_16dp"
-                            android:backgroundTint="@drawable/edittext_shape"
                             android:padding="@dimen/small_8dp"
                             android:text="@string/edit_profile_btn_txt"
                             android:textAllCaps="false"
