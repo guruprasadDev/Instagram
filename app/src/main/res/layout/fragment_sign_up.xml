@@ -82,10 +82,7 @@
                 android:padding="@dimen/padding_small"
                 android:text="@string/privacy_policy"
                 android:textAlignment="center"
-                android:textSize="@dimen/text_size_16sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/signUpBtn" />
+                android:textSize="@dimen/text_size_16sp" />
 
             <TextView
                 android:id="@+id/loginBtnTxt"
@@ -97,5 +94,4 @@
                 android:textSize="@dimen/text_size_16sp" />
         </LinearLayout>
     </ScrollView>
-
 </layout>

@@ -36,11 +36,6 @@ class PostAdapter(private val postList: ArrayList<Post>) :
         binding.apply {
             instagramPost = post
             context?.let {
-                addReadMore(
-                    text = post.description,
-                    textView = descriptionTxt,
-                    context = it
-                )
                 loadImageUrlLogo(
                     imageURL = post.logo,
                     context = it,
@@ -56,6 +51,10 @@ class PostAdapter(private val postList: ArrayList<Post>) :
                     imageView = postImg
                 )
             }
+            addReadMore(
+                text = post.description,
+                textView = descriptionTxt,
+            )
         }
     }
 

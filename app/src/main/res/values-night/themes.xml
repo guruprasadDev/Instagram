@@ -1,16 +1,15 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.Instagram" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/colorWhite</item>
-        <item name="colorPrimaryVariant">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorOnPrimary">@color/colorAccent</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/colorBlack</item>
-        <item name="colorSecondaryVariant">@color/colorWhite</item>
+        <item name="colorSecondary">@color/colorWhite</item>
+        <item name="colorSecondaryVariant">@color/colorBlack</item>
         <item name="colorOnSecondary">@color/colorBlue</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>

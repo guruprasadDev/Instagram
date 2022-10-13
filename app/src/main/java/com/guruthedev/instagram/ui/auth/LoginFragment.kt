@@ -48,15 +48,17 @@ class LoginFragment : Fragment() {
         val clickableText = getString(R.string.sign_up_txt)
         val logInText = text.plus(clickableText)
         return logInText.getSpanValues(text, clickableText) {
-            (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_signUpFragment2)
+            (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_signUpFragment)
         }
     }
 
     private fun initListener() {
-        binding.loginBtn.setOnClickListener {
-            val email = binding.emailEdt.text.toString().trim()
-            val password = binding.passwordEdt.text.toString().trim()
-            validateCred(email, password)
+        binding.apply {
+            loginBtn.setOnClickListener {
+                val email = emailEdt.text.toString().trim()
+                val password = passwordEdt.text.toString().trim()
+                validateCred(email, password)
+            }
         }
     }
 
@@ -77,7 +79,5 @@ class LoginFragment : Fragment() {
         } else {
             Toast.makeText(activity, getString(R.string.toast_for_login_message), Toast.LENGTH_SHORT).show()
         }
-
     }
-
 }

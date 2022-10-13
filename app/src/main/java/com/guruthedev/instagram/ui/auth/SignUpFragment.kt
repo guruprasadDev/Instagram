@@ -43,22 +43,23 @@ class SignUpFragment : Fragment() {
     }
 
     private fun getSignUpText(): SpannableString {
-        val text = getString(R.string.don_t_have_an_account_txt);
+        val text = getString(R.string.don_t_have_an_account_txt)
         val clickableText = getString(R.string.sign_up_txt)
         val logInText = text.plus(clickableText)
         return logInText.getSpanValues(text, clickableText) {
-            (activity as MainActivity).navigateTo(actionId = R.id.action_signUpFragment2_to_loginFragment)
+            (activity as MainActivity).navigateTo(actionId = R.id.action_signUpFragment_to_loginFragment)
         }
     }
 
     private fun initListener() {
-        binding.signUpBtn.setOnClickListener {
-            val fullName = binding.fullNameEdt.text.toString()
-            val username = binding.usernameEdt.text.toString()
-            val email = binding.emailEdt.text.toString()
-            val password = binding.passwordEdt.text.toString()
-            validateCred(fullName, username, email, password)
-
+        binding.apply {
+            signUpBtn.setOnClickListener {
+                val fullName = fullNameEdt.text.toString().trim()
+                val username = usernameEdt.text.toString().trim()
+                val email = emailEdt.text.toString().trim()
+                val password = passwordEdt.text.toString().trim()
+                validateCred(fullName, username, email, password)
+            }
         }
     }
 
@@ -67,7 +68,7 @@ class SignUpFragment : Fragment() {
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { taskResult ->
                     if (taskResult.isSuccessful) {
-                        (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_homeFragment)
+                        (activity as MainActivity).navigateTo(actionId = R.id.action_signUpFragment_to_homeFragment)
                     } else {
                         Toast.makeText(
                             activity,
