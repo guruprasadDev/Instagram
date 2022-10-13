@@ -14,10 +14,10 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/profile_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginRight="6dp"
+            android:layout_height="@dimen/normal_52dp"
+            android:layout_marginStart="@dimen/small_4dp"
+            android:layout_marginTop="@dimen/small_4dp"
+            android:layout_marginEnd="@dimen/small_8dp"
             android:background="@color/colorWhite">
 
             <RelativeLayout
@@ -26,19 +26,18 @@
 
                 <ImageView
                     android:id="@+id/close_profile_img_btn"
-                    android:layout_width="20dp"
-                    android:layout_height="30dp"
+                    android:layout_width="@dimen/normal_32dp"
+                    android:layout_height="@dimen/normal_32dp"
                     android:layout_alignParentStart="true"
                     android:src="@drawable/close" />
 
                 <ImageView
                     android:id="@+id/save_profile_img_btn"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="@dimen/normal_32dp"
+                    android:layout_height="@dimen/normal_32dp"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginRight="@dimen/marginMediumBig"
+                    android:layout_marginEnd="@dimen/small_16dp"
                     android:src="@drawable/save_edited_info" />
-
 
             </RelativeLayout>
 
@@ -48,11 +47,11 @@
 
     <ImageView
         android:id="@+id/profile_img_view_profile_frag"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="@dimen/large_130dp"
+        android:layout_height="@dimen/large_130dp"
         android:layout_below="@id/app_bar_profile_layout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/marginMediumBig"
+        android:layout_marginTop="@dimen/small_16dp"
         android:src="@drawable/profile" />
 
     <TextView
@@ -61,10 +60,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/profile_img_view_profile_frag"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/marginMediumSmall"
-        android:text="@string/change_image"
+        android:layout_marginTop="@dimen/small_8dp"
+        android:text="@string/title_change_image"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="@dimen/fourteen"
+        android:textSize="@dimen/text_size_14sp"
         android:textStyle="bold" />
 
     <EditText
@@ -72,10 +71,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/change_image_text_btn"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="@dimen/marginMediumBig"
-        android:layout_marginRight="20dp"
-        android:hint="@string/full_name"
+        android:layout_marginHorizontal="@dimen/small_20dp"
+        android:layout_marginTop="@dimen/small_16dp"
+        android:hint="@string/hint_full_name"
         android:inputType="text" />
 
     <EditText
@@ -83,21 +81,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/full_name_profile_frag"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="@dimen/marginMediumBig"
-        android:layout_marginRight="20dp"
-        android:hint="@string/username"
+        android:layout_marginHorizontal="@dimen/small_20dp"
+        android:layout_marginTop="@dimen/small_16dp"
+        android:hint="@string/hint_username"
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/bio__profile_frag"
+        android:id="@+id/bio_profile_frag"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/username_profile_frag"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="@dimen/marginMediumBig"
-        android:layout_marginRight="20dp"
-        android:hint="@string/bio"
+        android:layout_marginHorizontal="@dimen/small_20dp"
+        android:layout_marginTop="@dimen/small_16dp"
+        android:hint="@string/bio_dec"
         android:inputType="text" />
 
     <Button
@@ -105,28 +101,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/delete_btn"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="@dimen/marginSmall"
+        android:layout_marginHorizontal="@dimen/small_20dp"
+        android:layout_marginBottom="@dimen/small_4dp"
         android:background="@color/colorPrimaryDark"
-        android:text="@string/logout"
+        android:text="@string/logout_btn_txt"
         android:textAllCaps="false"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/fourteen" />
+        android:textSize="@dimen/text_size_12sp" />
 
     <Button
         android:id="@+id/delete_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="@dimen/marginSmall"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="@dimen/marginMediumSmall"
+        android:layout_marginHorizontal="@dimen/small_20dp"
+        android:layout_marginTop="@dimen/small_4dp"
+        android:layout_marginBottom="@dimen/small_8dp"
         android:backgroundTint="@color/colorPrimaryDark"
-        android:text="Delete Account"
+        android:text="@string/delete_account_btn"
         android:textAllCaps="false"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/fourteen" />
+        android:textSize="@dimen/text_size_12sp" />
 
 </RelativeLayout>

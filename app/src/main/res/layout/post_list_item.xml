@@ -3,11 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="instagramPost"
             type="com.guruthedev.instagram.dataClass.Post" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,12 +14,12 @@
 
         <ImageView
             android:id="@+id/imgProfile"
-            android:layout_width="@dimen/thirty"
-            android:layout_height="@dimen/thirty"
+            android:layout_width="@dimen/normal_32dp"
+            android:layout_height="@dimen/normal_32dp"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/marginMediumBig"
-            android:layout_marginTop="@dimen/marginMediumSmall"
-            android:src="@{instagramPost.logo}"
+            android:layout_marginStart="@dimen/small_16dp"
+            android:layout_marginTop="@dimen/small_16dp"
+            app:loadImage="@{instagramPost.logo}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,10 +27,11 @@
             android:id="@+id/tvUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/marginMediumSmall"
+            android:layout_marginStart="@dimen/small_8dp"
             android:text="@{instagramPost.name}"
             android:textColor="@color/colorBlack"
-            android:textSize="@dimen/fourteen"
+            android:textSize="@dimen/text_size_14sp"
+            android:layout_marginTop="@dimen/small_4dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/postImg"
             app:layout_constraintStart_toEndOf="@id/imgProfile"
@@ -40,10 +39,10 @@
 
         <ImageView
             android:id="@+id/imgMenu"
-            android:layout_width="@dimen/fab_margin"
-            android:layout_height="@dimen/fab_margin"
-            android:layout_marginTop="@dimen/marginMediumSmall"
-            android:layout_marginEnd="@dimen/marginMediumBig"
+            android:layout_width="@dimen/small_16dp"
+            android:layout_height="@dimen/small_16dp"
+            android:layout_marginTop="@dimen/small_8dp"
+            android:layout_marginEnd="@dimen/small_16dp"
             android:src="@drawable/dots"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -52,38 +51,38 @@
             android:id="@+id/postImg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/marginSmall"
-            android:src="@{instagramPost.photo}"
+            android:layout_marginTop="@dimen/small_4dp"
+            app:loadImage="@{instagramPost.photo}"
             app:layout_constraintTop_toBottomOf="@id/imgProfile" />
 
         <ImageView
             android:id="@+id/HeartIcon"
-            android:layout_width="@dimen/footer_menu_size"
-            android:layout_height="@dimen/footer_menu_size"
+            android:layout_width="@dimen/small_24dp"
+            android:layout_height="@dimen/small_24dp"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/marginMediumBig"
-            android:layout_marginTop="@dimen/marginMediumSmall"
-            android:contentDescription="@string/_likes"
+            android:layout_marginStart="@dimen/small_16dp"
+            android:layout_marginTop="@dimen/small_8dp"
+            android:contentDescription="@string/label_likes"
             android:src="@drawable/heart"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/postImg" />
 
         <ImageView
             android:id="@+id/replyIcon"
-            android:layout_width="@dimen/footer_menu_size"
-            android:layout_height="@dimen/footer_menu_size"
-            android:layout_marginStart="@dimen/marginMediumBig"
-            android:layout_marginTop="@dimen/marginMediumSmall"
-            android:contentDescription="@string/_likes"
+            android:layout_width="@dimen/small_24dp"
+            android:layout_height="@dimen/small_24dp"
+            android:layout_marginStart="@dimen/small_16dp"
+            android:layout_marginTop="@dimen/small_8dp"
+            android:contentDescription="@string/label_likes"
             android:src="@drawable/ic_baseline_reply_24"
             app:layout_constraintStart_toEndOf="@id/HeartIcon"
             app:layout_constraintTop_toBottomOf="@id/postImg" />
 
         <ImageView
-            android:id="@+id/send"
-            android:layout_width="@dimen/footer_menu_size"
-            android:layout_height="@dimen/footer_menu_size"
-            android:layout_marginStart="@dimen/marginMediumBig"
+            android:id="@+id/send_icon"
+            android:layout_width="@dimen/small_24dp"
+            android:layout_height="@dimen/small_24dp"
+            android:layout_marginStart="@dimen/small_16dp"
             android:layout_marginTop="8dp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/send_icon"
@@ -92,12 +91,12 @@
 
         <ImageView
             android:id="@+id/bookmarkImg"
-            android:layout_width="@dimen/five"
-            android:layout_height="@dimen/five"
+            android:layout_width="@dimen/normal_52dp"
+            android:layout_height="@dimen/small_24dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginTop="@dimen/marginMediumSmall"
-            android:layout_marginEnd="@dimen/marginMediumSmall"
+            android:layout_marginTop="@dimen/small_8dp"
+            android:layout_marginEnd="@dimen/small_8dp"
             android:src="@drawable/ic_mini_bookmark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/postImg" />
@@ -106,11 +105,11 @@
             android:id="@+id/likes_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/marginMediumBig"
-            android:layout_marginTop="@dimen/marginMediumBig"
+            android:layout_marginStart="@dimen/small_16dp"
+            android:layout_marginTop="@dimen/small_16dp"
             android:text="@{instagramPost.likes}"
-            android:textColor="@color/gray"
-            android:textSize="@dimen/fourteen"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/text_size_14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/HeartIcon" />
@@ -120,24 +119,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/likes_txt"
-            android:layout_marginStart="@dimen/marginMediumBig"
-            android:layout_marginTop="@dimen/marginSmall"
-            android:layout_marginEnd="@dimen/marginMediumSmall"
+            android:layout_marginHorizontal="@dimen/small_16dp"
+            android:layout_marginTop="@dimen/small_8dp"
             android:ellipsize="end"
             android:text="@{instagramPost.description}"
-            android:textColor="@color/gray"
-            android:textSize="@dimen/fourteen"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/text_size_14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/likes_txt" />
 
         <ImageView
             android:id="@+id/profile_pic"
-            android:layout_width="@dimen/five"
-            android:layout_height="@dimen/five"
+            android:layout_width="@dimen/small_24dp"
+            android:layout_height="@dimen/small_24dp"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/marginMediumBig"
-            android:layout_marginTop="@dimen/marginMediumBig"
-            android:layout_marginBottom="@dimen/marginMediumSmall"
+            android:layout_marginStart="@dimen/small_16dp"
+            android:layout_marginTop="@dimen/small_16dp"
+            android:layout_marginBottom="@dimen/small_8dp"
             android:src="@drawable/profile"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -147,14 +145,14 @@
             android:id="@+id/comment_edt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/fifty"
-            android:layout_marginTop="@dimen/marginMediumSmall"
+            android:layout_marginStart="@dimen/normal_52dp"
+            android:layout_marginTop="@dimen/small_8dp"
             android:layout_toEndOf="@+id/profile_pic"
             android:background="@null"
-            android:hint="@string/comment"
+            android:hint="@string/hint_comment"
             android:inputType="text"
-            android:textColor="@color/gray"
-            android:textSize="@dimen/fourteen"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/text_size_14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toEndOf="@id/profile_pic"

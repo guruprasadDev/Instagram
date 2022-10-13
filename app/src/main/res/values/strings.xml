@@ -3,26 +3,35 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="comment">Add a comment...</string>
-    <string name="_likes">likes</string>
-    <string name="space">  .</string>
-    <string name="username">username</string>
-    <string name="change_image">Change Image</string>
-    <string name="full_name">Full Name</string>
-    <string name="bio">Bio</string>
-    <string name="logout">Logout</string>
-    <string name="or">OR</string>
+    <string name="hint_comment">Add a comment…</string>
+    <string name="label_likes">likes</string>
+    <string name="title_change_image">Change Image</string>
+    <string name="logout_btn_txt">Logout</string>
+    <string name="title_or">OR</string>
     <string name="privacy_policy">By signing up, you agree to our <b>Terms \n &amp; Privacy Policy.</b></string>
-    <string name="log_in"><b> Log in</b></string>
-    <string name="have_an_account">Have an account? <font color="#3997f2"><b>Log in</b></font></string>
+    <string name="login_have_an_account_txt">Have an account?</string>
+    <string name="login_txt"><font color="#3997f2"><b>Log in</b></font></string>
     <string name="sign_up_with_facebook">Sign Up With Facebook</string>
     <string name="sign_up_dec">Sign up to see photos and videos from your \n friends.</string>
-    <string name="sign_up">Sign up</string>
     <string name="get_help_with_logging_in">Get help with logging in.</string>
     <string name="forgotten_your_login_details">Forgotten your login details <font color="#3997f2"><b>Get help with logging in.</b></font></string>
-    <string name="don_t_have_an_account">Don\'t have an account? <font color="#3997f2"><b>Sign Up</b></font></string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
+    <string name="don_t_have_an_account_txt">Don\'t have an account? </string>
+    <string name="sign_up_txt"><font color="#3997f2"><b>Sign Up</b></font></string>
+    <string name="hint_username">username</string>
+    <string name="hint_full_name">Full Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="delete_account_btn">Delete Account</string>
+    <string name="title_posts">Posts</string>
+    <string name="title_followers">Followers</string>
+    <string name="zero_followers_txt">0</string>
+    <string name="title_following">Following</string>
+    <string name="bio_dec">Bio</string>
+    <string name="edit_profile_btn_txt">Edit Profile</string>
+    <string name="login_btn_txt">Log in</string>
+    <string name="signup_btn_txt">SignUp</string>
+    <string name="hint_search">Search</string>
+    <string name="title_profile">Profile</string>
+    <string name="toast_for_login_message">Empty Fields are not allowed</string>
 </resources>

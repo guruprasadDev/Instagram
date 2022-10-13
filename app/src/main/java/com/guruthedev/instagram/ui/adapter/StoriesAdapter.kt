@@ -1,4 +1,4 @@
-package com.guruthedev.instagram.adapter
+package com.guruthedev.instagram.ui.adapter
 
 
 import android.content.Context
@@ -33,24 +33,25 @@ class StoriesAdapter(
         val stories = statusList[feedStory]
         val binding = story.statusListBinding
         //if foodStory equals to 0 this will visible to user story
-        if (feedStory == 0) {
-            binding.icAddImg.visibility = View.VISIBLE
-        } else {
-            binding.icAddImg.visibility = View.INVISIBLE
-        }
-        binding.profileName.text = statusList[feedStory].name
-        binding.profileName.visibility = View.VISIBLE
-        context?.let {
-            loadImageUrlForStory(
-                imageURL = stories.picture,
-                context = it,
-                imageView = binding.profileImg
-            )
+        binding.apply {
+            if (feedStory == 0) {
+                icAddImg.visibility = View.VISIBLE
+            } else {
+                icAddImg.visibility = View.INVISIBLE
+            }
+            profileName.text = stories.name
+            profileName.visibility = View.VISIBLE
+            context?.let {
+                loadImageUrlForStory(
+                    imageURL = stories.picture,
+                    context = it,
+                    imageView = binding.profileImg
+                )
+            }
         }
     }
 
     class StoryViewHolder(binding: StoryItemsBinding) : RecyclerView.ViewHolder(binding.root) {
         val statusListBinding = binding
-
     }
 }

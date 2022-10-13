@@ -2,14 +2,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-    </data>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragments.ProfileFragment">
+        tools:context=".ui.fragments.ProfileFragment">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/app_bar_layout_profile"
@@ -20,10 +16,9 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/search_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/fifty"
-                android:layout_marginLeft="6dp"
-                android:layout_marginTop="@dimen/marginSmall"
-                android:layout_marginRight="6dp"
+                android:layout_height="@dimen/normal_52dp"
+                android:layout_marginHorizontal="@dimen/small_8dp"
+                android:layout_marginTop="@dimen/small_8dp"
                 android:background="@color/colorWhite">
 
                 <RelativeLayout
@@ -36,25 +31,25 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:maxLines="1"
-                        android:text="@string/username"
+                        android:text="@string/hint_username"
                         android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/marginMediumBig"
+                        android:textSize="@dimen/text_size_16sp"
                         android:textStyle="bold" />
 
                     <ImageView
                         android:id="@+id/postImages"
-                        android:layout_width="@dimen/thirty"
-                        android:layout_height="@dimen/thirty"
+                        android:layout_width="@dimen/normal_32dp"
+                        android:layout_height="@dimen/normal_32dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginEnd="@dimen/thirty"
+                        android:layout_marginEnd="@dimen/normal_52dp"
                         android:src="@drawable/add" />
 
 
                     <ImageView
                         android:id="@+id/options_view"
-                        android:layout_width="@dimen/thirty"
-                        android:layout_height="@dimen/thirty"
+                        android:layout_width="@dimen/normal_32dp"
+                        android:layout_height="@dimen/normal_32dp"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:src="@drawable/options" />
@@ -82,20 +77,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="@dimen/marginMediumBig">
+                    android:padding="@dimen/small_16dp">
 
                     <ImageView
                         android:id="@+id/profile_image_fragment"
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
+                        android:layout_width="@dimen/large_120dp"
+                        android:layout_height="@dimen/large_120dp"
                         android:src="@drawable/profile" />
 
 
                     <LinearLayout
-                        android:layout_width="200dp"
-                        android:layout_height="100dp"
-                        android:layout_marginLeft="60dp"
-                        android:layout_marginTop="@dimen/marginMediumBig"
+                        android:layout_width="@dimen/large_200dp"
+                        android:layout_height="@dimen/large_100dp"
+                        android:layout_marginStart="@dimen/large_60dp"
+                        android:layout_marginTop="@dimen/small_16dp"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -113,9 +108,9 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Posts"
+                                    android:text="@string/title_posts"
                                     android:textColor="@color/colorBlack"
-                                    android:textSize="@dimen/fourteen"
+                                    android:textSize="@dimen/text_size_12sp"
                                     android:textStyle="bold" />
 
 
@@ -123,9 +118,9 @@
                                     android:id="@+id/total_post"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="0"
+                                    android:text="@string/zero_followers_txt"
                                     android:textColor="@color/colorBlack"
-                                    android:textSize="@dimen/fourteen"
+                                    android:textSize="@dimen/text_size_12sp"
                                     android:textStyle="bold" />
 
 
@@ -134,16 +129,16 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="7dp"
+                                android:layout_marginStart="@dimen/small_8dp"
                                 android:gravity="center"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Followers"
+                                    android:text="@string/title_followers"
                                     android:textColor="@color/colorBlack"
-                                    android:textSize="@dimen/fourteen"
+                                    android:textSize="@dimen/text_size_12sp"
                                     android:textStyle="bold" />
 
 
@@ -151,9 +146,9 @@
                                     android:id="@+id/total_followers"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="0"
+                                    android:text="@string/zero_followers_txt"
                                     android:textColor="@color/colorBlack"
-                                    android:textSize="@dimen/fourteen"
+                                    android:textSize="@dimen/text_size_12sp"
                                     android:textStyle="bold" />
 
 
@@ -162,16 +157,16 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="7dp"
+                                android:layout_marginStart="@dimen/small_8dp"
                                 android:gravity="center"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Following"
+                                    android:text="@string/title_following"
                                     android:textColor="@color/colorBlack"
-                                    android:textSize="@dimen/fourteen"
+                                    android:textSize="@dimen/text_size_12sp"
                                     android:textStyle="bold" />
 
 
@@ -179,9 +174,9 @@
                                     android:id="@+id/total_following"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="0"
+                                    android:text="@string/zero_followers_txt"
                                     android:textColor="@color/colorBlack"
-                                    android:textSize="@dimen/fourteen"
+                                    android:textSize="@dimen/text_size_12sp"
                                     android:textStyle="bold" />
 
 
@@ -192,20 +187,17 @@
 
                         <Button
                             android:id="@+id/edit_account_setting_btn"
-                            android:layout_width="170dp"
-                            android:layout_height="42dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="@dimen/marginMediumBig"
-                            android:backgroundTint="@color/gray"
-                            android:padding="@dimen/marginSmall"
-                            android:text="Edit Profile"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/normal_44dp"
+                            android:layout_marginStart="@dimen/small_8dp"
+                            android:layout_marginTop="@dimen/small_16dp"
+                            android:padding="@dimen/small_8dp"
+                            android:text="@string/edit_profile_btn_txt"
                             android:textAllCaps="false"
                             android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/fourteen" />
-
+                            android:textSize="@dimen/text_size_12sp" />
 
                     </LinearLayout>
-
 
                 </LinearLayout>
 
@@ -214,69 +206,60 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="12dp">
+                    android:padding="@dimen/small_16dp">
 
                     <TextView
                         android:id="@+id/full_name_profile_frag"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Full Name"
+                        android:layout_marginStart="@dimen/small_8dp"
+                        android:text="@string/hint_full_name"
                         android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/fourteen"
+                        android:textSize="@dimen/text_size_16sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/bio_profile_frag"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Bio"
+                        android:layout_marginStart="@dimen/small_8dp"
+                        android:padding="@dimen/small_8dp"
+                        android:text="@string/bio_dec"
                         android:textColor="@color/colorBlack"
-                        android:textSize="12dp"
-                        android:textStyle="bold" />
-
+                        android:textSize="@dimen/text_size_12sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp"
-                    android:backgroundTint="@color/gray"
+                    android:layout_marginHorizontal="@dimen/small_4dp"
+                    android:layout_marginTop="@dimen/small_24dp"
+                    android:backgroundTint="@color/colorGray"
                     android:orientation="horizontal">
 
                     <ImageView
                         style="android:attr/buttonBarButtonStyle"
-                        android:layout_width="1dp"
+                        android:layout_width="@dimen/small_1dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:src="@drawable/gird" />
 
                     <ImageView
                         style="android:attr/buttonBarButtonStyle"
-                        android:layout_width="1dp"
+                        android:layout_width="@dimen/small_1dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@drawable/grid" />
+                        android:src="@drawable/video" />
 
                     <ImageView
                         style="android:attr/buttonBarButtonStyle"
-                        android:layout_width="1dp"
+                        android:layout_width="@dimen/small_1dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:src="@drawable/grid" />
-
-                    <ImageView
-                        style="android:attr/buttonBarButtonStyle"
-                        android:layout_width="1dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:src="@drawable/grid" />
-
+                        android:src="@drawable/ic_mini_bookmark" />
 
                 </LinearLayout>
-
 
             </LinearLayout>
 

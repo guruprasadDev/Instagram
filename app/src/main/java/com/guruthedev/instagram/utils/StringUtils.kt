@@ -1,6 +1,5 @@
 package com.guruthedev.instagram.utils
 
-import android.content.Context
 import android.graphics.Color
 import android.text.SpannableString
 import android.text.Spanned
@@ -10,13 +9,13 @@ import android.text.style.ClickableSpan
 import android.view.View
 import android.widget.TextView
 
-fun addReadMore(text: String, textView: TextView, context: Context) {
+fun addReadMore(text: String, textView: TextView) {
     val textStarts = 0
     val spannableString =
         SpannableString(text.substring(textStarts, getWordCount(text)) + "...read more")
     val clickableSpan: ClickableSpan = object : ClickableSpan() {
         override fun onClick(view: View) {
-            addReadLess(text, textView, context)
+            addReadLess(text, textView)
         }
 
         override fun updateDrawState(drawState: TextPaint) {
@@ -39,12 +38,11 @@ fun getWordCount(str: String): Int {
     return str.split("\\s+".toRegex()).size
 }
 
-
-fun addReadLess(text: String, textView: TextView, context: Context) {
+fun addReadLess(text: String, textView: TextView) {
     val spannableString = SpannableString("$text read less")
     val clickableSpan: ClickableSpan = object : ClickableSpan() {
         override fun onClick(view: View) {
-            addReadMore(text, textView, context)
+            addReadMore(text, textView)
         }
 
         override fun updateDrawState(drawState: TextPaint) {

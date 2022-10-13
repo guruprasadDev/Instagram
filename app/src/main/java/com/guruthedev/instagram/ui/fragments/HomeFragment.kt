@@ -1,4 +1,4 @@
-package com.guruthedev.instagram.fragments
+package com.guruthedev.instagram.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
-import com.guruthedev.instagram.adapter.PostAdapter
-import com.guruthedev.instagram.adapter.StoriesAdapter
 import com.guruthedev.instagram.dataClass.InstaStatus
 import com.guruthedev.instagram.dataClass.Post
 import com.guruthedev.instagram.databinding.FragmentHomeBinding
+import com.guruthedev.instagram.ui.adapter.PostAdapter
+import com.guruthedev.instagram.ui.adapter.StoriesAdapter
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding

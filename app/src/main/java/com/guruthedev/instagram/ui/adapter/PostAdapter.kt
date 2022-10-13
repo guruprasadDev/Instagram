@@ -1,4 +1,4 @@
-package com.guruthedev.instagram.adapter
+package com.guruthedev.instagram.ui.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -33,14 +33,9 @@ class PostAdapter(private val postList: ArrayList<Post>) :
     override fun onBindViewHolder(viewHolder: PostViewHolder, feedPost: Int) {
         val post = postList[feedPost]
         val binding = viewHolder.postBinding
-        binding.instagramPost= post
         binding.apply {
-        context?.let {
-                addReadMore(
-                    text = post.description,
-                    textView = descriptionTxt,
-                    context = it
-                )
+            instagramPost = post
+            context?.let {
                 loadImageUrlLogo(
                     imageURL = post.logo,
                     context = it,
@@ -56,8 +51,13 @@ class PostAdapter(private val postList: ArrayList<Post>) :
                     imageView = postImg
                 )
             }
+            addReadMore(
+                text = post.description,
+                textView = descriptionTxt,
+            )
         }
     }
+
     class PostViewHolder(binding: PostListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val postBinding = binding
