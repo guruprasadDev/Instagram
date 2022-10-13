@@ -38,7 +38,7 @@ class StoriesAdapter(
         } else {
             binding.icAddImg.visibility = View.INVISIBLE
         }
-        binding.profileName.text = statusList[feedStory].name
+        binding.profileName.text = stories.name
         binding.profileName.visibility = View.VISIBLE
         context?.let {
             loadImageUrlForStory(

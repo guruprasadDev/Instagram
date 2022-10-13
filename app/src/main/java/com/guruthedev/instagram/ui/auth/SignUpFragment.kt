@@ -2,6 +2,7 @@ package com.guruthedev.instagram.ui.auth
 
 import android.graphics.Color
 import android.os.Bundle
+import android.text.SpannableString
 import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
@@ -23,38 +24,65 @@ class SignUpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSignUpBinding.inflate(inflater, container, false)
-        val text = getString(R.string.don_t_have_an_account_txt);
-        val clickableText = getString(R.string.sign_up_txt)
-        val logInText = text.plus(clickableText)
-        val spannableText = logInText.getSpanValues(text, clickableText) {
-            (activity as MainActivity).navigateTo(actionId = R.id.action_signUpFragment2_to_loginFragment)
-        }
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        firebaseAuth = FirebaseAuth.getInstance()
+        initView()
+        initListener()
+    }
+
+    private fun initView() {
         binding.loginBtnTxt.apply {
-            setText(spannableText, TextView.BufferType.SPANNABLE)
+            setText(getSignUpText(), TextView.BufferType.SPANNABLE)
             movementMethod = LinkMovementMethod.getInstance()
             highlightColor = Color.TRANSPARENT
         }
-        firebaseAuth = FirebaseAuth.getInstance()
+    }
+
+    private fun getSignUpText(): SpannableString {
+        val text = getString(R.string.don_t_have_an_account_txt);
+        val clickableText = getString(R.string.sign_up_txt)
+        val logInText = text.plus(clickableText)
+        return logInText.getSpanValues(text, clickableText) {
+            (activity as MainActivity).navigateTo(actionId = R.id.action_signUpFragment2_to_loginFragment)
+        }
+    }
+
+    private fun initListener() {
         binding.signUpBtn.setOnClickListener {
             val fullName = binding.fullNameEdt.text.toString()
             val username = binding.usernameEdt.text.toString()
             val email = binding.emailEdt.text.toString()
             val password = binding.passwordEdt.text.toString()
+            validateCred(fullName, username, email, password)
 
-            if (fullName.isNotEmpty() && username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
-                firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        (activity as MainActivity).navigateTo(actionId = R.id.action_signUpFragment2_to_loginFragment)
+        }
+    }
+
+    private fun validateCred(fullName: String, username: String, email: String, password: String) {
+        if (fullName.isNotEmpty() && username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
+            firebaseAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener { taskResult ->
+                    if (taskResult.isSuccessful) {
+                        (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_homeFragment)
                     } else {
-                        Toast.makeText(activity, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            activity,
+                            taskResult.exception.toString(),
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
-            } else {
-                Toast.makeText(activity, "Empty Fields are not allowed", Toast.LENGTH_SHORT).show()
-            }
+        } else {
+            Toast.makeText(
+                activity,
+                getString(R.string.toast_for_login_message),
+                Toast.LENGTH_SHORT
+            ).show()
         }
-        return binding.root
     }
 }
 

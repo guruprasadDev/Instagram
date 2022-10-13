@@ -24,6 +24,7 @@
             app:itemIconTint="@drawable/bottom_nav_icon_color"
             app:labelVisibilityMode="unlabeled"
             app:menu="@menu/bottom_nav_menu"
+            android:visibility="invisible"
             app:navGraph="@navigation/nav_graph" />
 
     </LinearLayout>

@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_4dp"
-            android:src="@{instagramPost.photo}"
+            app:loadImage="@{instagramPost.photo}"
             app:layout_constraintTop_toBottomOf="@id/imgProfile" />
 
         <ImageView

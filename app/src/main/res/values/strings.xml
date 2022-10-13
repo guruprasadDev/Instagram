@@ -33,4 +33,5 @@
     <string name="signup_btn_txt">SignUp</string>
     <string name="hint_search">Search</string>
     <string name="title_profile">Profile</string>
+    <string name="toast_for_login_message">Empty Fields are not allowed</string>
 </resources>

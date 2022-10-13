@@ -33,9 +33,9 @@ class PostAdapter(private val postList: ArrayList<Post>) :
     override fun onBindViewHolder(viewHolder: PostViewHolder, feedPost: Int) {
         val post = postList[feedPost]
         val binding = viewHolder.postBinding
-        binding.instagramPost = post
         binding.apply {
-        context?.let {
+            instagramPost = post
+            context?.let {
                 addReadMore(
                     text = post.description,
                     textView = descriptionTxt,
@@ -58,6 +58,7 @@ class PostAdapter(private val postList: ArrayList<Post>) :
             }
         }
     }
+
     class PostViewHolder(binding: PostListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val postBinding = binding
