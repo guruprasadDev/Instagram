@@ -1,4 +1,4 @@
-package com.guruthedev.instagram.ui.auth
+package com.guruthedev.instagram.ui.fragments.auth
 
 import android.graphics.Color
 import android.os.Bundle
