@@ -1,4 +1,4 @@
-package com.guruthedev.instagram.ui.fragments.auth
+package com.guruthedev.instagram.ui.fragments.auth.login
 
 import android.graphics.Color
 import android.os.Bundle
@@ -13,17 +13,18 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.guruthedev.instagram.MainActivity
 import com.guruthedev.instagram.R
-import com.guruthedev.instagram.databinding.FragmentSignUpBinding
+import com.guruthedev.instagram.databinding.FragmentLoginBinding
 import com.guruthedev.instagram.extensions.getSpanValues
 
-class SignUpFragment : Fragment() {
-    private lateinit var binding: FragmentSignUpBinding
+class LoginFragment : Fragment() {
+    private lateinit var binding: FragmentLoginBinding
     private lateinit var firebaseAuth: FirebaseAuth
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSignUpBinding.inflate(inflater, container, false)
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -35,40 +36,38 @@ class SignUpFragment : Fragment() {
     }
 
     private fun initView() {
-        binding.loginBtnTxt.apply {
-            setText(getSignUpText(), TextView.BufferType.SPANNABLE)
+        binding.signUpBtnTxt.apply {
+            setText(getLoginBtnText(), TextView.BufferType.SPANNABLE)
             movementMethod = LinkMovementMethod.getInstance()
             highlightColor = Color.TRANSPARENT
         }
     }
 
-    private fun getSignUpText(): SpannableString {
+    private fun getLoginBtnText(): SpannableString {
         val text = getString(R.string.don_t_have_an_account_txt)
         val clickableText = getString(R.string.sign_up_txt)
         val logInText = text.plus(clickableText)
         return logInText.getSpanValues(text, clickableText) {
-            (activity as MainActivity).navigateTo(actionId = R.id.action_signUpFragment_to_loginFragment)
+            (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_signUpFragment)
         }
     }
 
     private fun initListener() {
         binding.apply {
-            signUpBtn.setOnClickListener {
-                val fullName = fullNameEdt.text.toString().trim()
-                val username = usernameEdt.text.toString().trim()
+            loginBtn.setOnClickListener {
                 val email = emailEdt.text.toString().trim()
                 val password = passwordEdt.text.toString().trim()
-                validateCred(fullName, username, email, password)
+                validateCred(email, password)
             }
         }
     }
 
-    private fun validateCred(fullName: String, username: String, email: String, password: String) {
-        if (fullName.isNotEmpty() && username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
-            firebaseAuth.createUserWithEmailAndPassword(email, password)
+    private fun validateCred(email: String, password: String) {
+        if (email.isNotEmpty() && password.isNotEmpty()) {
+            firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { taskResult ->
-                    if (taskResult.isSuccessful) {
-                        (activity as MainActivity).navigateTo(actionId = R.id.action_signUpFragment_to_homeFragment)
+                    if (!taskResult.isSuccessful) {
+                        (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_homeFragment)
                     } else {
                         Toast.makeText(
                             activity,
@@ -78,20 +77,7 @@ class SignUpFragment : Fragment() {
                     }
                 }
         } else {
-            Toast.makeText(
-                activity,
-                getString(R.string.toast_for_login_message),
-                Toast.LENGTH_SHORT
-            ).show()
+            Toast.makeText(activity, getString(R.string.toast_for_login_message), Toast.LENGTH_SHORT).show()
         }
     }
 }
-
-
-
-
-
-
-
-
-

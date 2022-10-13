@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            tools:context=".ui.fragments.auth.SignUpFragment">
+            tools:context=".ui.fragments.auth.signUp.SignUpFragment">
 
             <ImageView
                 android:id="@+id/instagramText"
