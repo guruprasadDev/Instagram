@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.firebase.auth.FirebaseAuth
+import androidx.lifecycle.ViewModelProvider
 import com.guruthedev.instagram.MainActivity
 import com.guruthedev.instagram.R
 import com.guruthedev.instagram.databinding.FragmentLoginBinding
@@ -18,21 +18,38 @@ import com.guruthedev.instagram.extensions.getSpanValues
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
-    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var viewModel: LoginViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        firebaseAuth = FirebaseAuth.getInstance()
+        initObserver()
         initView()
         initListener()
+    }
+
+    private fun initObserver() {
+        viewModel.taskResponse.observe(
+            viewLifecycleOwner
+        ) { taskResult ->
+            if (taskResult.isSuccessful) {
+                (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_homeFragment)
+            } else {
+                Toast.makeText(
+                    activity,
+                    taskResult.exception.toString(),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
     }
 
     private fun initView() {
@@ -64,20 +81,13 @@ class LoginFragment : Fragment() {
 
     private fun validateCred(email: String, password: String) {
         if (email.isNotEmpty() && password.isNotEmpty()) {
-            firebaseAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener { taskResult ->
-                    if (!taskResult.isSuccessful) {
-                        (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_homeFragment)
-                    } else {
-                        Toast.makeText(
-                            activity,
-                            taskResult.exception.toString(),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
+            viewModel.login(email, password)
         } else {
-            Toast.makeText(activity, getString(R.string.toast_for_login_message), Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                activity,
+                getString(R.string.toast_for_login_message),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 }

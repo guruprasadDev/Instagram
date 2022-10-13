@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.firebase.auth.FirebaseAuth
+import androidx.lifecycle.ViewModelProvider
 import com.guruthedev.instagram.MainActivity
 import com.guruthedev.instagram.R
 import com.guruthedev.instagram.databinding.FragmentSignUpBinding
@@ -18,20 +18,36 @@ import com.guruthedev.instagram.extensions.getSpanValues
 
 class SignUpFragment : Fragment() {
     private lateinit var binding: FragmentSignUpBinding
-    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var viewModel: SignUpViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSignUpBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this)[SignUpViewModel::class.java]
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        firebaseAuth = FirebaseAuth.getInstance()
+        initObservers()
         initView()
         initListener()
+    }
+
+    private fun initObservers() {
+        viewModel.taskResponse.observe(viewLifecycleOwner
+        ) { taskResult ->
+            if (taskResult.isSuccessful) {
+                (activity as MainActivity).navigateTo(actionId = R.id.action_signUpFragment_to_homeFragment)
+            } else {
+                Toast.makeText(
+                    activity,
+                    taskResult.exception.toString(),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
     }
 
     private fun initView() {
@@ -65,18 +81,7 @@ class SignUpFragment : Fragment() {
 
     private fun validateCred(fullName: String, username: String, email: String, password: String) {
         if (fullName.isNotEmpty() && username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
-            firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener { taskResult ->
-                    if (taskResult.isSuccessful) {
-                        (activity as MainActivity).navigateTo(actionId = R.id.action_signUpFragment_to_homeFragment)
-                    } else {
-                        Toast.makeText(
-                            activity,
-                            taskResult.exception.toString(),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
+                viewModel.signUp(email,password)
         } else {
             Toast.makeText(
                 activity,
