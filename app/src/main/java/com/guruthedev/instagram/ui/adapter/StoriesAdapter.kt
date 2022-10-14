@@ -39,7 +39,8 @@ class StoriesAdapter(
             } else {
                 icAddImg.visibility = View.INVISIBLE
             }
-            profileName.text = stories.name
+            storyFeed = stories
+           // profileName.text = stories.name
             profileName.visibility = View.VISIBLE
             context?.let {
                 loadImageUrlForStory(
