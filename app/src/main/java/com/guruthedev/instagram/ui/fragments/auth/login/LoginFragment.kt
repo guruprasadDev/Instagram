@@ -47,13 +47,8 @@ class LoginFragment : Fragment() {
         }
         viewModel.errorLiveData.observe(
             viewLifecycleOwner
-        ) { taskResult ->
-            if (taskResult.isCanceled) {
-                Toast.makeText(
-                    activity,
-                    getString(R.string.toast_for_login_message), Toast.LENGTH_SHORT
-                ).show()
-            }
+        ) { errorMessage ->
+            Toast.makeText(activity, errorMessage, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -83,15 +78,4 @@ class LoginFragment : Fragment() {
             }
         }
     }
-//    private fun validateCred(email: String, password: String) {
-//        if (email.isNotEmpty() && password.isNotEmpty()) {
-//            viewModel.login(email, password)
-//        } else {
-//            Toast.makeText(
-//                activity,
-//                getString(R.string.toast_for_login_message),
-//                Toast.LENGTH_SHORT
-//            ).show()
-//        }
-//    }
 }
