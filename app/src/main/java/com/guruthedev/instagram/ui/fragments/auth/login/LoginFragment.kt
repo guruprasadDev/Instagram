@@ -15,6 +15,7 @@ import com.guruthedev.instagram.MainActivity
 import com.guruthedev.instagram.R
 import com.guruthedev.instagram.databinding.FragmentLoginBinding
 import com.guruthedev.instagram.extensions.getSpanValues
+import com.guruthedev.instagram.viewModel.LoginViewModel
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
@@ -37,16 +38,20 @@ class LoginFragment : Fragment() {
     }
 
     private fun initObserver() {
-        viewModel.taskResponse.observe(
+        viewModel.taskResponseLiveData.observe(
             viewLifecycleOwner
         ) { taskResult ->
             if (taskResult.isSuccessful) {
                 (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_homeFragment)
-            } else {
+            }
+        }
+        viewModel.errorLiveData.observe(
+            viewLifecycleOwner
+        ) { taskResult ->
+            if (taskResult.isCanceled) {
                 Toast.makeText(
                     activity,
-                    taskResult.exception.toString(),
-                    Toast.LENGTH_SHORT
+                    getString(R.string.toast_for_login_message), Toast.LENGTH_SHORT
                 ).show()
             }
         }
@@ -74,20 +79,19 @@ class LoginFragment : Fragment() {
             loginBtn.setOnClickListener {
                 val email = emailEdt.text.toString().trim()
                 val password = passwordEdt.text.toString().trim()
-                validateCred(email, password)
+                viewModel.validateCred(email, password)
             }
         }
     }
-
-    private fun validateCred(email: String, password: String) {
-        if (email.isNotEmpty() && password.isNotEmpty()) {
-            viewModel.login(email, password)
-        } else {
-            Toast.makeText(
-                activity,
-                getString(R.string.toast_for_login_message),
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-    }
+//    private fun validateCred(email: String, password: String) {
+//        if (email.isNotEmpty() && password.isNotEmpty()) {
+//            viewModel.login(email, password)
+//        } else {
+//            Toast.makeText(
+//                activity,
+//                getString(R.string.toast_for_login_message),
+//                Toast.LENGTH_SHORT
+//            ).show()
+//        }
+//    }
 }
