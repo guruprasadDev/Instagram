@@ -15,6 +15,7 @@ import com.guruthedev.instagram.MainActivity
 import com.guruthedev.instagram.R
 import com.guruthedev.instagram.databinding.FragmentSignUpBinding
 import com.guruthedev.instagram.extensions.getSpanValues
+import com.guruthedev.instagram.viewModel.SignUpViewModel
 
 class SignUpFragment : Fragment() {
     private lateinit var binding: FragmentSignUpBinding
@@ -36,11 +37,17 @@ class SignUpFragment : Fragment() {
     }
 
     private fun initObservers() {
-        viewModel.taskResponse.observe(viewLifecycleOwner
+        viewModel.taskResponseLiveData.observe(
+            viewLifecycleOwner
         ) { taskResult ->
             if (taskResult.isSuccessful) {
                 (activity as MainActivity).navigateTo(actionId = R.id.action_signUpFragment_to_homeFragment)
-            } else {
+            }
+        }
+        viewModel.errorLiveData.observe(
+            viewLifecycleOwner
+        ) { taskResult ->
+            if (taskResult.isCanceled) {
                 Toast.makeText(
                     activity,
                     taskResult.exception.toString(),
@@ -59,8 +66,8 @@ class SignUpFragment : Fragment() {
     }
 
     private fun getSignUpText(): SpannableString {
-        val text = getString(R.string.don_t_have_an_account_txt)
-        val clickableText = getString(R.string.sign_up_txt)
+        val text = getString(R.string.login_have_an_account_txt)
+        val clickableText = getString(R.string.login_txt)
         val logInText = text.plus(clickableText)
         return logInText.getSpanValues(text, clickableText) {
             (activity as MainActivity).navigateTo(actionId = R.id.action_signUpFragment_to_loginFragment)
@@ -74,29 +81,29 @@ class SignUpFragment : Fragment() {
                 val username = usernameEdt.text.toString().trim()
                 val email = emailEdt.text.toString().trim()
                 val password = passwordEdt.text.toString().trim()
-                validateCred(fullName, username, email, password)
+                viewModel.validateCred(fullName, username, email, password)
+                viewModel.errorLiveData.observe(
+                    viewLifecycleOwner
+                ) { taskResult ->
+                    if (taskResult.isCanceled) {
+                        Toast.makeText(
+                            activity,
+                            getString(R.string.toast_for_login_message), Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
             }
         }
-    }
-
-    private fun validateCred(fullName: String, username: String, email: String, password: String) {
-        if (fullName.isNotEmpty() && username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
-                viewModel.signUp(email,password)
-        } else {
-            Toast.makeText(
-                activity,
-                getString(R.string.toast_for_login_message),
-                Toast.LENGTH_SHORT
-            ).show()
-        }
+//    private fun validateCred(fullName: String, username: String, email: String, password: String) {
+//        if (fullName.isNotEmpty() && username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
+//            viewModel.signUp(email, password)
+//        } else {
+//            Toast.makeText(
+//                activity,
+//                getString(R.string.toast_for_login_message),
+//                Toast.LENGTH_SHORT
+//            ).show()
+//        }
+//    }
     }
 }
-
-
-
-
-
-
-
-
-
