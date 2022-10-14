@@ -46,14 +46,8 @@ class SignUpFragment : Fragment() {
         }
         viewModel.errorLiveData.observe(
             viewLifecycleOwner
-        ) { taskResult ->
-            if (taskResult.isCanceled) {
-                Toast.makeText(
-                    activity,
-                    taskResult.exception.toString(),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+        ) { errorMessage ->
+            Toast.makeText(activity, errorMessage, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -82,28 +76,7 @@ class SignUpFragment : Fragment() {
                 val email = emailEdt.text.toString().trim()
                 val password = passwordEdt.text.toString().trim()
                 viewModel.validateCred(fullName, username, email, password)
-                viewModel.errorLiveData.observe(
-                    viewLifecycleOwner
-                ) { taskResult ->
-                    if (taskResult.isCanceled) {
-                        Toast.makeText(
-                            activity,
-                            getString(R.string.toast_for_login_message), Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
             }
         }
-//    private fun validateCred(fullName: String, username: String, email: String, password: String) {
-//        if (fullName.isNotEmpty() && username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
-//            viewModel.signUp(email, password)
-//        } else {
-//            Toast.makeText(
-//                activity,
-//                getString(R.string.toast_for_login_message),
-//                Toast.LENGTH_SHORT
-//            ).show()
-//        }
-//    }
     }
 }
