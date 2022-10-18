@@ -5,7 +5,7 @@
     <data>
         <variable
             name="instagramPost"
-            type="com.guruthedev.instagram.dataClass.Post" />
+            type="com.guruthedev.instagram.data.Post" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

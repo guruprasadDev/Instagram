@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.guruthedev.instagram.dataClass.InstaStatus
+import com.guruthedev.instagram.data.InstaStatus
 import com.guruthedev.instagram.databinding.StoryItemsBinding
 import com.guruthedev.instagram.utils.loadImageUrlForStory
 
@@ -39,7 +39,8 @@ class StoriesAdapter(
             } else {
                 icAddImg.visibility = View.INVISIBLE
             }
-            profileName.text = stories.name
+            storyFeed = stories
+           // profileName.text = stories.name
             profileName.visibility = View.VISIBLE
             context?.let {
                 loadImageUrlForStory(

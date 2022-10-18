@@ -5,7 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.guruthedev.instagram.dataClass.Post
+import com.guruthedev.instagram.data.Post
 import com.guruthedev.instagram.databinding.PostListItemBinding
 import com.guruthedev.instagram.utils.addReadMore
 import com.guruthedev.instagram.utils.loadImageUrl

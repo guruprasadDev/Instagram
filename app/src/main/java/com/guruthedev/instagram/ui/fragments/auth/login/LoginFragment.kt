@@ -1,4 +1,4 @@
-package com.guruthedev.instagram.ui.auth
+package com.guruthedev.instagram.ui.fragments.auth.login
 
 import android.graphics.Color
 import android.os.Bundle
@@ -10,29 +10,53 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.firebase.auth.FirebaseAuth
+import androidx.lifecycle.ViewModelProvider
 import com.guruthedev.instagram.MainActivity
 import com.guruthedev.instagram.R
 import com.guruthedev.instagram.databinding.FragmentLoginBinding
 import com.guruthedev.instagram.extensions.getSpanValues
+import com.guruthedev.instagram.utils.LoginErrorType
+import com.guruthedev.instagram.viewModel.LoginViewModel
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
-    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var viewModel: LoginViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        firebaseAuth = FirebaseAuth.getInstance()
+        initObserver()
         initView()
         initListener()
+    }
+
+    private fun initObserver() {
+        viewModel.taskResponseLiveData.observe(
+            viewLifecycleOwner
+        ) { taskResult ->
+            (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_homeFragment)
+        }
+        viewModel.errorLiveData.observe(
+            viewLifecycleOwner
+        ) { loginError ->
+            when (loginError.loginErrorType) {
+                LoginErrorType.ERROR_EMPTY_EMAIL -> showError(getString(R.string.email_toast_message))
+                LoginErrorType.ERROR_EMPTY_PASSWORD -> showError(getString(R.string.password_toast_message))
+                LoginErrorType.ERROR_API -> {
+                    loginError.errorMessage?.let { errorMessage ->
+                        showError(errorMessage)
+                    }
+                }
+            }
+        }
     }
 
     private fun initView() {
@@ -57,27 +81,12 @@ class LoginFragment : Fragment() {
             loginBtn.setOnClickListener {
                 val email = emailEdt.text.toString().trim()
                 val password = passwordEdt.text.toString().trim()
-                validateCred(email, password)
+                viewModel.validateCred(email, password)
             }
         }
     }
 
-    private fun validateCred(email: String, password: String) {
-        if (email.isNotEmpty() && password.isNotEmpty()) {
-            firebaseAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener { taskResult ->
-                    if (!taskResult.isSuccessful) {
-                        (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_homeFragment)
-                    } else {
-                        Toast.makeText(
-                            activity,
-                            taskResult.exception.toString(),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-        } else {
-            Toast.makeText(activity, getString(R.string.toast_for_login_message), Toast.LENGTH_SHORT).show()
-        }
+    private fun showError(error: String) {
+        Toast.makeText(activity, error, Toast.LENGTH_SHORT).show()
     }
 }

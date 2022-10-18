@@ -60,4 +60,3 @@ fun addReadLess(text: String, textView: TextView) {
     textView.text = spannableString
     textView.movementMethod = LinkMovementMethod.getInstance()
 }
-
