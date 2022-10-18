@@ -49,10 +49,10 @@ class LoginFragment : Fragment() {
         ) { loginError ->
             when (loginError.loginErrorType) {
                 LoginErrorType.ERROR_EMPTY_EMAIL -> showError(getString(R.string.email_toast_message))
-                LoginErrorType.ERROR_EMPTY_PASSWORD ->showError(getString(R.string.password_toast_message))
+                LoginErrorType.ERROR_EMPTY_PASSWORD -> showError(getString(R.string.password_toast_message))
                 LoginErrorType.ERROR_API -> {
-                    loginError.errorMessage?.let {
-                        showError(loginError.errorMessage)
+                    loginError.errorMessage?.let { errorMessage ->
+                        showError(errorMessage)
                     }
                 }
             }

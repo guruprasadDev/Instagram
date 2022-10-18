@@ -38,22 +38,18 @@ class SignUpFragment : Fragment() {
     }
 
     private fun initObservers() {
-        viewModel.taskResponseLiveData.observe(
-            viewLifecycleOwner
-        ) { taskResult ->
+        viewModel.taskResponseLiveData.observe(viewLifecycleOwner) { taskResult ->
             (activity as MainActivity).navigateTo(actionId = R.id.action_signUpFragment_to_homeFragment)
         }
-        viewModel.errorLiveData.observe(
-            viewLifecycleOwner
-        ) { signUpError ->
+        viewModel.errorLiveData.observe(viewLifecycleOwner) { signUpError ->
             when (signUpError.signUpTypeError) {
                 SignUpErrorType.ERROR_EMPTY_FULL_NAME -> showError(getString(R.string.full_name_toast_message))
                 SignUpErrorType.ERROR_EMPTY_USERNAME -> showError(getString(R.string.user_name_toast_message))
                 SignUpErrorType.ERROR_EMPTY_EMAIL -> showError(getString(R.string.email_toast_message))
                 SignUpErrorType.ERROR_EMPTY_PASSWORD -> showError(getString(R.string.password_toast_message))
                 SignUpErrorType.ERROR_API -> {
-                    signUpError.errorMessage?.let {
-                        showError(signUpError.errorMessage)
+                    signUpError.errorMessage?.let { errorMessage ->
+                        showError(errorMessage)
                     }
                 }
             }
