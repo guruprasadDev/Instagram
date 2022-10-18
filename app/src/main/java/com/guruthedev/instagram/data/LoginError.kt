@@ -1,4 +1,4 @@
-package com.guruthedev.instagram.dataClass
+package com.guruthedev.instagram.data
 
 import com.guruthedev.instagram.utils.LoginErrorType
 

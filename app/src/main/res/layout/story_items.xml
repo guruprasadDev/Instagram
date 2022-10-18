@@ -5,7 +5,7 @@
     <data>
         <variable
             name="storyFeed"
-            type="com.guruthedev.instagram.dataClass.InstaStatus" />
+            type="com.guruthedev.instagram.data.InstaStatus" />
     </data>
 
     <RelativeLayout
