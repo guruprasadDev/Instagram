@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.guruthedev.instagram.dataClass.LoginError
+import com.guruthedev.instagram.utils.LoginErrorType
 
 class LoginViewModel : ViewModel() {
 
@@ -13,28 +15,30 @@ class LoginViewModel : ViewModel() {
     private val _taskResponseLiveData = MutableLiveData<Task<AuthResult>>()
     val taskResponseLiveData: LiveData<Task<AuthResult>>
         get() = _taskResponseLiveData
-    private val _errorLiveData = MutableLiveData<String>()
-    val errorLiveData: LiveData<String>
+    private val _errorLiveData = MutableLiveData<LoginError>()
+    val errorLiveData: LiveData<LoginError>
         get() = _errorLiveData
 
     private fun login(email: String, password: String) {
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { taskResult ->
-                if(taskResult.isSuccessful){
+                if (taskResult.isSuccessful) {
                     _taskResponseLiveData.postValue(taskResult)
-                }else{
-                    _errorLiveData.postValue(taskResult.exception?.message)
+                } else {
+                    _errorLiveData.value =
+                        LoginError(LoginErrorType.ERROR_API, taskResult.exception?.message)
                 }
             }
     }
 
     fun validateCred(email: String, password: String) {
-        if (email.isNotEmpty() && password.isNotEmpty()) {
+        if (email.isEmpty()) {
+            _errorLiveData.value = LoginError(LoginErrorType.ERROR_EMPTY_EMAIL)
+        }
+        if (password.isEmpty()) {
+            _errorLiveData.value = LoginError(LoginErrorType.ERROR_EMPTY_PASSWORD)
+        } else {
             login(email, password)
-        }else{
-            _errorLiveData.postValue("Empty fields are not allowed")
         }
     }
 }
-
-
