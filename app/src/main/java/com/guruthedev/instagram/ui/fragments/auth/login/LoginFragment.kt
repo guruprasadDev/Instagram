@@ -15,6 +15,7 @@ import com.guruthedev.instagram.MainActivity
 import com.guruthedev.instagram.R
 import com.guruthedev.instagram.databinding.FragmentLoginBinding
 import com.guruthedev.instagram.extensions.getSpanValues
+import com.guruthedev.instagram.utils.LoginErrorType
 import com.guruthedev.instagram.viewModel.LoginViewModel
 
 class LoginFragment : Fragment() {
@@ -41,14 +42,20 @@ class LoginFragment : Fragment() {
         viewModel.taskResponseLiveData.observe(
             viewLifecycleOwner
         ) { taskResult ->
-            if (taskResult.isSuccessful) {
-                (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_homeFragment)
-            }
+            (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_homeFragment)
         }
         viewModel.errorLiveData.observe(
             viewLifecycleOwner
-        ) { errorMessage ->
-            Toast.makeText(activity, errorMessage, Toast.LENGTH_SHORT).show()
+        ) { loginError ->
+            when (loginError.loginErrorType) {
+                LoginErrorType.ERROR_EMPTY_EMAIL -> showError(getString(R.string.email_toast_message))
+                LoginErrorType.ERROR_EMPTY_PASSWORD ->showError(getString(R.string.password_toast_message))
+                LoginErrorType.ERROR_API -> {
+                    loginError.errorMessage?.let {
+                        showError(loginError.errorMessage)
+                    }
+                }
+            }
         }
     }
 
@@ -77,5 +84,9 @@ class LoginFragment : Fragment() {
                 viewModel.validateCred(email, password)
             }
         }
+    }
+
+    private fun showError(error: String) {
+        Toast.makeText(activity, error, Toast.LENGTH_SHORT).show()
     }
 }
