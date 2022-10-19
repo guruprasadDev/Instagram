@@ -37,4 +37,6 @@
     <string name="error_empty_username">username required</string>
     <string name="error_empty_email">Email id required</string>
     <string name="error_empty_password">Password required</string>
+    <string name="app_preference">appPref</string>
+    <string name="int_example_preference">intExamplePref</string>
 </resources>

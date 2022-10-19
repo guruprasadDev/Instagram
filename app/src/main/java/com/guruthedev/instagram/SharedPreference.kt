@@ -15,7 +15,7 @@ class SharedPreference {
     private lateinit var editor: SharedPreferences.Editor
     lateinit var context: Context
 
-    constructor(context: Context){
+    constructor(context: Context) {
         this.context = context
         preference = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
         editor = preference.edit()
