@@ -8,13 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.guruthedev.instagram.MainActivity
 import com.guruthedev.instagram.R
 import com.guruthedev.instagram.databinding.FragmentSignUpBinding
 import com.guruthedev.instagram.extensions.getSpanValues
+import com.guruthedev.instagram.extensions.showToast
 import com.guruthedev.instagram.utils.SignUpErrorType
 import com.guruthedev.instagram.viewModel.SignUpViewModel
 
@@ -43,13 +43,13 @@ class SignUpFragment : Fragment() {
         }
         viewModel.errorLiveData.observe(viewLifecycleOwner) { signUpError ->
             when (signUpError.signUpTypeError) {
-                SignUpErrorType.ERROR_EMPTY_FULL_NAME -> showError(getString(R.string.full_name_toast_message))
-                SignUpErrorType.ERROR_EMPTY_USERNAME -> showError(getString(R.string.user_name_toast_message))
-                SignUpErrorType.ERROR_EMPTY_EMAIL -> showError(getString(R.string.email_toast_message))
-                SignUpErrorType.ERROR_EMPTY_PASSWORD -> showError(getString(R.string.password_toast_message))
+                SignUpErrorType.ERROR_EMPTY_FULL_NAME -> requireContext().showToast(getString(R.string.error_empty_full_name))
+                SignUpErrorType.ERROR_EMPTY_USERNAME -> requireContext().showToast(getString(R.string.error_empty_username))
+                SignUpErrorType.ERROR_EMPTY_EMAIL -> requireContext().showToast(getString(R.string.error_empty_email))
+                SignUpErrorType.ERROR_EMPTY_PASSWORD -> requireContext().showToast(getString(R.string.error_empty_password))
                 SignUpErrorType.ERROR_API -> {
                     signUpError.errorMessage?.let { errorMessage ->
-                        showError(errorMessage)
+                        requireContext().showToast(errorMessage)
                     }
                 }
             }
@@ -83,9 +83,5 @@ class SignUpFragment : Fragment() {
                 viewModel.validateCred(fullName, username, email, password)
             }
         }
-    }
-
-    private fun showError(error: String) {
-        Toast.makeText(activity, error, Toast.LENGTH_LONG).show()
     }
 }

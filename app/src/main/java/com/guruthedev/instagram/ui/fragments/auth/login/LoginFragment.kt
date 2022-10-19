@@ -8,19 +8,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.guruthedev.instagram.MainActivity
 import com.guruthedev.instagram.R
+import com.guruthedev.instagram.SharedPreference
 import com.guruthedev.instagram.databinding.FragmentLoginBinding
 import com.guruthedev.instagram.extensions.getSpanValues
+import com.guruthedev.instagram.extensions.showToast
 import com.guruthedev.instagram.utils.LoginErrorType
 import com.guruthedev.instagram.viewModel.LoginViewModel
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private lateinit var viewModel: LoginViewModel
+    private lateinit var preference: SharedPreference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,17 +44,19 @@ class LoginFragment : Fragment() {
         viewModel.taskResponseLiveData.observe(
             viewLifecycleOwner
         ) { taskResult ->
-            (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_homeFragment)
+            if (preference.isLoggedIn()){
+                (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_homeFragment)
+            }
         }
         viewModel.errorLiveData.observe(
             viewLifecycleOwner
         ) { loginError ->
             when (loginError.loginErrorType) {
-                LoginErrorType.ERROR_EMPTY_EMAIL -> showError(getString(R.string.email_toast_message))
-                LoginErrorType.ERROR_EMPTY_PASSWORD -> showError(getString(R.string.password_toast_message))
+                LoginErrorType.ERROR_EMPTY_EMAIL -> requireContext().showToast(getString(R.string.error_empty_email))
+                LoginErrorType.ERROR_EMPTY_PASSWORD -> requireContext().showToast(getString(R.string.error_empty_password))
                 LoginErrorType.ERROR_API -> {
                     loginError.errorMessage?.let { errorMessage ->
-                        showError(errorMessage)
+                        requireContext().showToast(errorMessage)
                     }
                 }
             }
@@ -84,9 +88,5 @@ class LoginFragment : Fragment() {
                 viewModel.validateCred(email, password)
             }
         }
-    }
-
-    private fun showError(error: String) {
-        Toast.makeText(activity, error, Toast.LENGTH_SHORT).show()
     }
 }

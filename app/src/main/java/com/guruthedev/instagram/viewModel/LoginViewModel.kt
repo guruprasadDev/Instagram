@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.guruthedev.instagram.SharedPreference
 import com.guruthedev.instagram.data.LoginError
 import com.guruthedev.instagram.utils.LoginErrorType
 import kotlinx.coroutines.Dispatchers
