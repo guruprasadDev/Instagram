@@ -44,19 +44,19 @@ class LoginFragment : Fragment() {
         viewModel.taskResponseLiveData.observe(
             viewLifecycleOwner
         ) { taskResult ->
-            if (preference.isLoggedIn()){
                 (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_homeFragment)
-            }
         }
         viewModel.errorLiveData.observe(
             viewLifecycleOwner
         ) { loginError ->
-            when (loginError.loginErrorType) {
-                LoginErrorType.ERROR_EMPTY_EMAIL -> requireContext().showToast(getString(R.string.error_empty_email))
-                LoginErrorType.ERROR_EMPTY_PASSWORD -> requireContext().showToast(getString(R.string.error_empty_password))
-                LoginErrorType.ERROR_API -> {
-                    loginError.errorMessage?.let { errorMessage ->
-                        requireContext().showToast(errorMessage)
+            with(requireContext()) {
+                when (loginError.loginErrorType) {
+                    LoginErrorType.ERROR_EMPTY_EMAIL -> requireContext().showToast(getString(R.string.error_empty_email))
+                    LoginErrorType.ERROR_EMPTY_PASSWORD -> requireContext().showToast(getString(R.string.error_empty_password))
+                    LoginErrorType.ERROR_API -> {
+                        loginError.errorMessage?.let { errorMessage ->
+                            requireContext().showToast(errorMessage)
+                        }
                     }
                 }
             }

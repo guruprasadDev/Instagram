@@ -24,12 +24,13 @@ class LoginViewModel(application:Application) : AndroidViewModel(application) {
     init {
         preference = SharedPreference(application.applicationContext)
     }
-    
+
     private fun login(email: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
             firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { taskResult ->
                     if (taskResult.isSuccessful) {
+                        taskResult.result
                         _taskResponseLiveData.postValue(taskResult)
                     } else {
                         _errorLiveData.postValue(

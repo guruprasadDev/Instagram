@@ -42,14 +42,16 @@ class SignUpFragment : Fragment() {
             (activity as MainActivity).navigateTo(actionId = R.id.action_signUpFragment_to_homeFragment)
         }
         viewModel.errorLiveData.observe(viewLifecycleOwner) { signUpError ->
-            when (signUpError.signUpTypeError) {
-                SignUpErrorType.ERROR_EMPTY_FULL_NAME -> requireContext().showToast(getString(R.string.error_empty_full_name))
-                SignUpErrorType.ERROR_EMPTY_USERNAME -> requireContext().showToast(getString(R.string.error_empty_username))
-                SignUpErrorType.ERROR_EMPTY_EMAIL -> requireContext().showToast(getString(R.string.error_empty_email))
-                SignUpErrorType.ERROR_EMPTY_PASSWORD -> requireContext().showToast(getString(R.string.error_empty_password))
-                SignUpErrorType.ERROR_API -> {
-                    signUpError.errorMessage?.let { errorMessage ->
-                        requireContext().showToast(errorMessage)
+            with(requireContext()) {
+                when (signUpError.signUpTypeError) {
+                    SignUpErrorType.ERROR_EMPTY_FULL_NAME -> requireContext().showToast(getString(R.string.error_empty_full_name))
+                    SignUpErrorType.ERROR_EMPTY_USERNAME -> requireContext().showToast(getString(R.string.error_empty_username))
+                    SignUpErrorType.ERROR_EMPTY_EMAIL -> requireContext().showToast(getString(R.string.error_empty_email))
+                    SignUpErrorType.ERROR_EMPTY_PASSWORD -> requireContext().showToast(getString(R.string.error_empty_password))
+                    SignUpErrorType.ERROR_API -> {
+                        signUpError.errorMessage?.let { errorMessage ->
+                            requireContext().showToast(errorMessage)
+                        }
                     }
                 }
             }

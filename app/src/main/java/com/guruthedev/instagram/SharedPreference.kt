@@ -31,12 +31,9 @@ class SharedPreference {
         }
     }
 
-    fun checkLogin() {
+    fun checkSession() {
         if (!this.isLoggedIn()) {
-            val intent: Intent = Intent(context, LoginFragment::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            context.startActivity(intent)
+            //here how can we use navigation LoginFragment
         }
     }
 
