@@ -7,16 +7,12 @@ import com.guruthedev.instagram.data.pref.IgPreference.Companion.KEY_USERNAME
 
 object SessionPrefHelper {
 
-    fun createLoginSession(
+    fun saveEmailPostLogin(
         igPreference: IgPreference,
-        fullName: String,
-        username: String,
         email: String
     ) {
         igPreference.editor.apply {
             putBoolean(IS_LOGIN, true)
-            putString(KEY_FULL_NAME, fullName)
-            putString(KEY_USERNAME, username)
             putString(KEY_EMAIL, email)
             commit()
         }
@@ -27,7 +23,7 @@ object SessionPrefHelper {
         with(igPreference) {
             (user as HashMap)[KEY_FULL_NAME] = preference.getString(KEY_FULL_NAME, "")
             (user)[KEY_USERNAME] = preference.getString(KEY_USERNAME, "")
-            (user)[KEY_EMAIL] = preference.getString(KEY_EMAIL, "")
+            (user as HashMap)[KEY_EMAIL] = preference.getString(KEY_EMAIL, "")
             return user
         }
     }
