@@ -4,10 +4,10 @@ import android.app.Application
 import com.guruthedev.instagram.data.pref.IgPreference
 
 class IgApplication : Application() {
-    private lateinit var preferences : IgPreference
+    private lateinit var preferences: IgPreference
     companion object {
-         lateinit var instances: IgApplication
-         private set
+        lateinit var instances: IgApplication
+            private set
     }
 
     override fun onCreate() {
@@ -16,5 +16,5 @@ class IgApplication : Application() {
         preferences = IgPreference(this)
     }
 
-    fun getPreference() :IgPreference = preferences
+    fun getPreference(): IgPreference = preferences
 }
