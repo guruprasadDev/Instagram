@@ -20,7 +20,7 @@ class SplashFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_splash, container, false)
         return binding.root
     }
@@ -28,6 +28,7 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val activity = requireActivity() as MainActivity
+
         if (SessionPrefHelper.isLoggedIn(igPreference)) {
             activity.navigateTo(R.id.action_splashFragment_to_homeFragment)
             activity.updateBottomNavVisibility(true)

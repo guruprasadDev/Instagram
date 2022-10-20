@@ -15,7 +15,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class SignUpViewModel() : ViewModel() {
-    private val igPreference = IgApplication.instances.getPreference()
     private val firebaseAuth = FirebaseAuth.getInstance()
     private val _taskResponseLiveData = MutableLiveData<Task<AuthResult>>()
     val taskResponseLiveData: LiveData<Task<AuthResult>>
@@ -29,7 +28,6 @@ class SignUpViewModel() : ViewModel() {
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { taskResult ->
                     if (taskResult.isSuccessful) {
-                        SessionPrefHelper.saveEmailPostLogin(igPreference,email)
                         _taskResponseLiveData.postValue(taskResult)
                     } else {
                         _errorLiveData.postValue(
