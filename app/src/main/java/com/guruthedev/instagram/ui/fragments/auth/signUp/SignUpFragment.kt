@@ -44,13 +44,13 @@ class SignUpFragment : Fragment() {
         viewModel.errorLiveData.observe(viewLifecycleOwner) { signUpError ->
             with(requireContext()) {
                 when (signUpError.signUpTypeError) {
-                    SignUpErrorType.ERROR_EMPTY_FULL_NAME -> requireContext().showToast(getString(R.string.error_empty_full_name))
-                    SignUpErrorType.ERROR_EMPTY_USERNAME -> requireContext().showToast(getString(R.string.error_empty_username))
-                    SignUpErrorType.ERROR_EMPTY_EMAIL -> requireContext().showToast(getString(R.string.error_empty_email))
-                    SignUpErrorType.ERROR_EMPTY_PASSWORD -> requireContext().showToast(getString(R.string.error_empty_password))
+                    SignUpErrorType.ERROR_EMPTY_FULL_NAME -> showToast(getString(R.string.error_empty_full_name))
+                    SignUpErrorType.ERROR_EMPTY_USERNAME -> showToast(getString(R.string.error_empty_username))
+                    SignUpErrorType.ERROR_EMPTY_EMAIL -> showToast(getString(R.string.error_empty_email))
+                    SignUpErrorType.ERROR_EMPTY_PASSWORD -> showToast(getString(R.string.error_empty_password))
                     SignUpErrorType.ERROR_API -> {
                         signUpError.errorMessage?.let { errorMessage ->
-                            requireContext().showToast(errorMessage)
+                            showToast(errorMessage)
                         }
                     }
                 }
