@@ -1,6 +1,8 @@
 package com.guruthedev.instagram
 
 import android.os.Bundle
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
@@ -16,5 +18,9 @@ class MainActivity : AppCompatActivity() {
 
     fun navigateTo(actionId: Int) {
         findNavController(R.id.main_nav_host_container).navigate(actionId)
+    }
+
+    fun updateBottomNavVisibility(show: Boolean) {
+        binding.navView.visibility = if (show) VISIBLE else GONE
     }
 }
