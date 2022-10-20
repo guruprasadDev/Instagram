@@ -2,8 +2,9 @@ package com.guruthedev.instagram.data.pref
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.guruthedev.instagram.IgApplication
 
-class IgPreference(var context: Context) {
+class IgPreference(context: IgApplication) {
     var preference: SharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
     var editor: SharedPreferences.Editor = preference.edit()
 
