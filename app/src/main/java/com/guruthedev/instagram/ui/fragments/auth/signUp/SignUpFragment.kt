@@ -47,7 +47,7 @@ class SignUpFragment : Fragment() {
                     SignUpErrorType.ERROR_EMPTY_FULL_NAME -> showToast(getString(R.string.error_empty_full_name))
                     SignUpErrorType.ERROR_EMPTY_USERNAME -> showToast(getString(R.string.error_empty_username))
                     SignUpErrorType.ERROR_EMPTY_EMAIL -> showToast(getString(R.string.error_empty_email))
-                    SignUpErrorType.ERROR_EMPTY_PASSWORD -> showToast(getString(R.string.error_empty_password))
+                    SignUpErrorType.ERROR_EMPTY_PASSWORD ->  showToast(getString(R.string.error_empty_password))
                     SignUpErrorType.ERROR_API -> {
                         signUpError.errorMessage?.let { errorMessage ->
                             showToast(errorMessage)
