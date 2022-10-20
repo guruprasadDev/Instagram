@@ -22,7 +22,6 @@ import com.guruthedev.instagram.viewModel.LoginViewModel
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private lateinit var viewModel: LoginViewModel
-    private lateinit var preference: IgPreference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

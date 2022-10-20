@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Instagram"
         android:windowSoftInputMode="adjustResize"
-        android:name=".applicationClass.MyCustomApplicationInitialize"
+        android:name=".IgApplication"
         tools:targetApi="31">
 
         <activity
