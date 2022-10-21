@@ -33,9 +33,8 @@
     <string name="signup_btn_txt">SignUp</string>
     <string name="hint_search">Search</string>
     <string name="title_profile">Profile</string>
-    <string name="toast_for_login_message">Empty Fields are not allowed</string>
-    <string name="full_name_toast_message">Full name required</string>
-    <string name="user_name_toast_message">username required</string>
-    <string name="email_toast_message">Email id required</string>
-    <string name="password_toast_message">Password required</string>
+    <string name="error_empty_full_name">Full name required</string>
+    <string name="error_empty_username">username required</string>
+    <string name="error_empty_email">Email id required</string>
+    <string name="error_empty_password">Password required</string>
 </resources>

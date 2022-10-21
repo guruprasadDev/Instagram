@@ -7,14 +7,16 @@ import androidx.lifecycle.viewModelScope
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.guruthedev.instagram.IgApplication
 import com.guruthedev.instagram.data.LoginError
+import com.guruthedev.instagram.data.pref.SessionPrefHelper
 import com.guruthedev.instagram.utils.LoginErrorType
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
-
     private val firebaseAuth = FirebaseAuth.getInstance()
+    private val igPreference = IgApplication.instances.getPreference()
     private val _taskResponseLiveData = MutableLiveData<Task<AuthResult>>()
     val taskResponseLiveData: LiveData<Task<AuthResult>>
         get() = _taskResponseLiveData
@@ -27,6 +29,7 @@ class LoginViewModel : ViewModel() {
             firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { taskResult ->
                     if (taskResult.isSuccessful) {
+                        SessionPrefHelper.saveEmailPostLogin(igPreference, email)
                         _taskResponseLiveData.postValue(taskResult)
                     } else {
                         _errorLiveData.postValue(

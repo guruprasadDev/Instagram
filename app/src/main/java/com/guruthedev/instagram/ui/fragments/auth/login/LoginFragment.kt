@@ -8,13 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.guruthedev.instagram.MainActivity
 import com.guruthedev.instagram.R
+import com.guruthedev.instagram.data.pref.IgPreference
 import com.guruthedev.instagram.databinding.FragmentLoginBinding
 import com.guruthedev.instagram.extensions.getSpanValues
+import com.guruthedev.instagram.extensions.showToast
 import com.guruthedev.instagram.utils.LoginErrorType
 import com.guruthedev.instagram.viewModel.LoginViewModel
 
@@ -47,12 +48,14 @@ class LoginFragment : Fragment() {
         viewModel.errorLiveData.observe(
             viewLifecycleOwner
         ) { loginError ->
-            when (loginError.loginErrorType) {
-                LoginErrorType.ERROR_EMPTY_EMAIL -> showError(getString(R.string.email_toast_message))
-                LoginErrorType.ERROR_EMPTY_PASSWORD -> showError(getString(R.string.password_toast_message))
-                LoginErrorType.ERROR_API -> {
-                    loginError.errorMessage?.let { errorMessage ->
-                        showError(errorMessage)
+            with(requireContext()) {
+                when (loginError.loginErrorType) {
+                    LoginErrorType.ERROR_EMPTY_EMAIL -> showToast(getString(R.string.error_empty_email))
+                    LoginErrorType.ERROR_EMPTY_PASSWORD -> showToast(getString(R.string.error_empty_password))
+                    LoginErrorType.ERROR_API -> {
+                        loginError.errorMessage?.let { errorMessage ->
+                            showToast(errorMessage)
+                        }
                     }
                 }
             }
@@ -84,9 +87,5 @@ class LoginFragment : Fragment() {
                 viewModel.validateCred(email, password)
             }
         }
-    }
-
-    private fun showError(error: String) {
-        Toast.makeText(activity, error, Toast.LENGTH_SHORT).show()
     }
 }
