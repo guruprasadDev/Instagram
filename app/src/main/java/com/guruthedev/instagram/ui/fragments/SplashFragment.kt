@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.guruthedev.instagram.IgApplication
 import com.guruthedev.instagram.MainActivity
 import com.guruthedev.instagram.R
-import com.guruthedev.instagram.data.pref.SessionPrefHelper
+import com.guruthedev.instagram.data.pref.IgPreference.Companion.IS_LOGIN
 import com.guruthedev.instagram.databinding.FragmentSplashBinding
+import kotlinx.coroutines.launch
 
 class SplashFragment : Fragment() {
     private lateinit var binding: FragmentSplashBinding
@@ -28,13 +30,17 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val activity = requireActivity() as MainActivity
-
-        if (SessionPrefHelper.isLoggedIn(igPreference)) {
-            activity.navigateTo(R.id.action_splashFragment_to_homeFragment)
-            activity.updateBottomNavVisibility(true)
-        } else {
-            activity.navigateTo(R.id.action_splashFragment_to_signUpFragment)
-            activity.updateBottomNavVisibility(false)
+        var isLoggedIn: String? = "false"
+        //if (SessionPrefHelper.isLoggedIn(igPreference)) {
+        lifecycleScope.launch {
+            isLoggedIn = igPreference.read(IS_LOGIN)
+            if (isLoggedIn == "true") {
+                activity.navigateTo(R.id.action_splashFragment_to_homeFragment)
+                activity.updateBottomNavVisibility(true)
+            } else {
+                activity.navigateTo(R.id.action_splashFragment_to_signUpFragment)
+                activity.updateBottomNavVisibility(false)
+            }
         }
     }
 }
