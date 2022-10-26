@@ -13,7 +13,10 @@
             app:destination="@id/loginFragment" />
         <action
             android:id="@+id/action_signUpFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -24,12 +27,12 @@
             app:destination="@id/signUpFragment" />
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/profileFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.guruthedev.instagram.ui.fragments.HomeFragment"
-        android:label="HomeFragment" />
+<!--    <fragment-->
+<!--        android:id="@+id/homeFragment"-->
+<!--        android:name="com.guruthedev.instagram.ui.fragments.HomeFragment"-->
+<!--        android:label="HomeFragment" />-->
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.guruthedev.instagram.ui.fragments.SplashFragment"
@@ -39,6 +42,10 @@
             app:destination="@id/signUpFragment" />
         <action
             android:id="@+id/action_splashFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/profileFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.guruthedev.instagram.ui.fragments.ProfileFragment"
+        android:label="ProfileFragment" />
 </navigation>
