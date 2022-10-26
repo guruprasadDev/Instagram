@@ -15,6 +15,7 @@ import com.guruthedev.instagram.R
 import com.guruthedev.instagram.databinding.FragmentSignUpBinding
 import com.guruthedev.instagram.extensions.getSpanValues
 import com.guruthedev.instagram.extensions.showToast
+import com.guruthedev.instagram.ui.fragments.ProfileFragment
 import com.guruthedev.instagram.utils.SignUpErrorType
 import com.guruthedev.instagram.viewModel.SignUpViewModel
 
@@ -83,6 +84,12 @@ class SignUpFragment : Fragment() {
                 val email = emailEdt.text.toString().trim()
                 val password = passwordEdt.text.toString().trim()
                 viewModel.validateCred(fullName, username, email, password)
+                val bundle =Bundle()
+                bundle.putString("full_name",fullName)
+                bundle.putString("username",username)
+                val fragment = ProfileFragment()
+                fragment.arguments = bundle
+                fragmentManager?.beginTransaction()?.replace(R.id.main_nav_host_container,fragment)?.commit()
             }
         }
     }
