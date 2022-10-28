@@ -10,6 +10,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -23,12 +24,12 @@ class MainActivity : AppCompatActivity() {
     val CHANNEL_NAME = "channelName"
     val NOTIF_ID = 0
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         createNotificationChannel()
         updatedPendingIntent()
-
     }
 
     fun navigateTo(actionId: Int) {
@@ -39,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         binding.navView.visibility = if (show) VISIBLE else GONE
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     private fun updatedPendingIntent() {
         val intent = Intent(this, MainActivity::class.java)
         val pendingIntent = TaskStackBuilder.create(this).run {

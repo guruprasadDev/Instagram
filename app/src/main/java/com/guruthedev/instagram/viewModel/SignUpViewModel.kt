@@ -9,12 +9,14 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.guruthedev.instagram.IgApplication
 import com.guruthedev.instagram.data.SignUpError
+import com.guruthedev.instagram.data.pref.IgPreference
 import com.guruthedev.instagram.data.pref.SessionPrefHelper
 import com.guruthedev.instagram.utils.SignUpErrorType
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class SignUpViewModel() : ViewModel() {
+    private val igPreference = IgApplication.instances.getPreference()
     private val firebaseAuth = FirebaseAuth.getInstance()
     private val _taskResponseLiveData = MutableLiveData<Task<AuthResult>>()
     val taskResponseLiveData: LiveData<Task<AuthResult>>
@@ -25,6 +27,7 @@ class SignUpViewModel() : ViewModel() {
 
     private fun signUp(email: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
+            igPreference.save(IgPreference.IS_LOGIN, "true")
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { taskResult ->
                     if (taskResult.isSuccessful) {
