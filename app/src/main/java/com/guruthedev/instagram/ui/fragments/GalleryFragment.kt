@@ -14,15 +14,12 @@ import androidx.fragment.app.Fragment
 import com.guruthedev.instagram.databinding.FragmentGalleryBinding
 
 class GalleryFragment : Fragment() {
-
     private lateinit var binding: FragmentGalleryBinding
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentGalleryBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -45,8 +42,8 @@ class GalleryFragment : Fragment() {
     }
 
     companion object {
-        private val IMAGE_PICK_CODE = 1000;
-        private val PERMISSION_CODE = 1001;
+        private val IMAGE_PICK_CODE = 1000
+        private val PERMISSION_CODE = 1001
     }
 
     override fun onRequestPermissionsResult(

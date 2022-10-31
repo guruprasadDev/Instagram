@@ -47,17 +47,13 @@ class MainActivity : AppCompatActivity() {
         cm.registerNetworkCallback(
             builder.build(),
             object : ConnectivityManager.NetworkCallback() {
-
                 @SuppressLint("ShowToast")
                 override fun onAvailable(network: Network) {
                     Log.i("MainActivity", "onAvailable!")
-
                     // check if NetworkCapabilities has TRANSPORT_WIFI
                     val isWifi: Boolean = cm.getNetworkCapabilities(network)?.hasTransport(
                         NetworkCapabilities.TRANSPORT_WIFI
                     ) == true
-
-                    // doSomething()
                 }
 
                 override fun onLost(network: Network) {
@@ -68,7 +64,6 @@ class MainActivity : AppCompatActivity() {
                         Snackbar.LENGTH_LONG
                     )
                     snack.show()
-                    // doSomething
                 }
             }
         )
