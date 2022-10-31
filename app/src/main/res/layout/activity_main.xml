@@ -16,13 +16,13 @@
             android:layout_weight="1"
             app:navGraph="@navigation/nav_graph" />
 
-        <Button
-            android:id="@+id/notificationBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Notification"
-            android:textColor="@color/colorWhite"
-            />
+<!--        <Button-->
+<!--            android:id="@+id/notificationBtn"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Notification"-->
+<!--            android:textColor="@color/colorWhite"-->
+<!--            />-->
 
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
