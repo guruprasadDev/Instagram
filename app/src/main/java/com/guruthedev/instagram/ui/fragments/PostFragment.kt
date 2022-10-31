@@ -1,5 +1,7 @@
 package com.guruthedev.instagram.ui.fragments
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
@@ -18,11 +20,13 @@ import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
+import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.google.android.material.snackbar.Snackbar
 import com.google.common.util.concurrent.ListenableFuture
 import com.guruthedev.instagram.R
+import com.guruthedev.instagram.connectivity.LiveNetworkMonitor
 import com.guruthedev.instagram.databinding.FragmentPostBinding
 import com.guruthedev.instagram.utils.Constants
 import java.io.File
@@ -38,6 +42,7 @@ class PostFragment : Fragment() {
     private lateinit var cameraProviderFuture: ListenableFuture<ProcessCameraProvider>
     private lateinit var cameraSelector: CameraSelector
     private lateinit var imgCaptureExecutor: ExecutorService
+    lateinit var networkStatusChecker: LiveNetworkMonitor
 
     private val cameraPermissionResult =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { permissionGranted ->
@@ -57,6 +62,7 @@ class PostFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentPostBinding.inflate(inflater, container, false)
+        networkStatusChecker = LiveNetworkMonitor(requireContext())
         return binding.root
     }
 
