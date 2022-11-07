@@ -116,7 +116,6 @@ class PostFragment : Fragment() {
             ).format(System.currentTimeMillis()) + ".jpg"
         )
         val outputOption = ImageCapture.OutputFileOptions.Builder(photoFile).build()
-
         imageCapture.takePicture(
             outputOption, ContextCompat.getMainExecutor(requireContext()),
             object : ImageCapture.OnImageSavedCallback {
@@ -130,7 +129,6 @@ class PostFragment : Fragment() {
                         "$msg $savedUri",
                         Toast.LENGTH_SHORT
                     ).show()
-
                 }
 
                 override fun onError(exception: ImageCaptureException) {
@@ -138,7 +136,6 @@ class PostFragment : Fragment() {
                 }
             }
         )
-
     }
 
     private fun startCamera() {

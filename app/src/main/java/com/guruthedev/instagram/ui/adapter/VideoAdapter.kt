@@ -15,17 +15,18 @@ import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.upstream.DefaultDataSource
 import com.guruthedev.instagram.data.ExoPlayerItem
-import com.guruthedev.instagram.data.Video
-import com.guruthedev.instagram.databinding.ListVideoBinding
+import com.guruthedev.instagram.data.Reels
+import com.guruthedev.instagram.databinding.VideoListItemBinding
+import com.guruthedev.instagram.utils.loadImageUrlLogo
 
 class VideoAdapter(
     var context: Context,
-    var videos: ArrayList<Video>,
+    var videos: ArrayList<Reels>,
     var videoPreparedListener: OnVideoPreparedListener
 ) : RecyclerView.Adapter<VideoAdapter.VideoViewHolder>() {
 
     class VideoViewHolder(
-        val binding: ListVideoBinding,
+        val binding: VideoListItemBinding,
         var context: Context,
         var videoPreparedListener: OnVideoPreparedListener
     ) : RecyclerView.ViewHolder(binding.root) {
@@ -50,17 +51,12 @@ class VideoAdapter(
                     }
                 }
             })
-
             binding.playerView.player = exoPlayer
-
             exoPlayer.seekTo(0)
             exoPlayer.repeatMode = Player.REPEAT_MODE_ONE
-
             val dataSourceFactory = DefaultDataSource.Factory(context)
-
             mediaSource = ProgressiveMediaSource.Factory(dataSourceFactory)
                 .createMediaSource(MediaItem.fromUri(Uri.parse(url)))
-
             exoPlayer.setMediaSource(mediaSource)
             exoPlayer.prepare()
 
@@ -68,21 +64,32 @@ class VideoAdapter(
                 exoPlayer.playWhenReady = true
                 exoPlayer.play()
             }
-
             videoPreparedListener.onVideoPrepared(ExoPlayerItem(exoPlayer, absoluteAdapterPosition))
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoViewHolder {
-        val view = ListVideoBinding.inflate(LayoutInflater.from(context), parent, false)
+        val view = VideoListItemBinding.inflate(LayoutInflater.from(context), parent, false)
         return VideoViewHolder(view, context, videoPreparedListener)
     }
 
     override fun onBindViewHolder(holder: VideoViewHolder, position: Int) {
         val model = videos[position]
-
-        holder.binding.tvUsername.text = model.tittle
         holder.setVideoPath(model.url)
+        holder.binding.apply {
+            tvUsername.text = model.tittle
+            tvLikesTapCount.text = model.likes
+            tvComments.text = model.comments
+            tvDescription.text = model.description
+            loadImageUrlLogo(
+                imageURL = model.logo,
+                context = context,
+                width = 800,
+                height = 400,
+                imageView = imgProfile
+            )
+        }
+
     }
 
     override fun getItemCount(): Int {

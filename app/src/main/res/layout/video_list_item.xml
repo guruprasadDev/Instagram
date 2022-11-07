@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.exoplayer2.ui.StyledPlayerView
+            android:id="@+id/playerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:resize_mode="fill"
+            app:use_controller="false" />
+
+        <ProgressBar
+            android:id="@+id/pbLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/playerView" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="@dimen/normal_40dp"
+            android:layout_height="@dimen/normal_40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/small_16dp"
+            android:layout_marginBottom="@dimen/large_60dp"
+            android:src="@drawable/insta"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_16dp"
+            android:layout_marginBottom="@dimen/large_70dp"
+            android:text="@string/app_name"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgProfile" />
+
+        <TextView
+            android:id="@+id/tvFollow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_8dp"
+            android:layout_marginBottom="@dimen/large_72dp"
+            android:text="·Follow"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvUsername" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_20dp"
+            android:layout_marginTop="@dimen/small_8dp"
+            android:text="des"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgProfile" />
+
+        <ImageView
+            android:id="@+id/HeartIcon"
+            android:layout_width="@dimen/normal_32dp"
+            android:layout_height="@dimen/normal_32dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/small_20dp"
+            android:layout_marginBottom="@dimen/large_240dp"
+            android:contentDescription="@string/label_likes"
+            android:src="@drawable/ic_baseline_favorite_border_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvLikesTapCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_8dp"
+            android:layout_marginEnd="@dimen/small_20dp"
+            android:text="123k"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/HeartIcon" />
+
+        <ImageView
+            android:id="@+id/replyIcon"
+            android:layout_width="@dimen/normal_32dp"
+            android:layout_height="@dimen/normal_32dp"
+            android:layout_marginTop="@dimen/small_16dp"
+            android:layout_marginEnd="@dimen/small_20dp"
+            android:contentDescription="@string/label_likes"
+            android:src="@drawable/ic_outline_mode_comment_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLikesTapCount" />
+
+        <TextView
+            android:id="@+id/tvComments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_8dp"
+            android:layout_marginEnd="@dimen/small_20dp"
+            android:text="468"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/replyIcon" />
+
+        <ImageView
+            android:id="@+id/send_icon"
+            android:layout_width="@dimen/normal_32dp"
+            android:layout_height="@dimen/normal_32dp"
+            android:layout_marginTop="@dimen/small_16dp"
+            android:layout_marginEnd="@dimen/small_20dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/send"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvComments" />
+
+        <ImageView
+            android:layout_width="@dimen/small_24dp"
+            android:layout_height="@dimen/small_24dp"
+            android:layout_marginStart="@dimen/small_16dp"
+            android:layout_marginTop="@dimen/small_16dp"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvReels"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_20dp"
+            android:text="@string/reels"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/small_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="@dimen/small_24dp"
+            android:layout_height="@dimen/small_24dp"
+            android:layout_marginTop="@dimen/small_16dp"
+            android:layout_marginEnd="@dimen/small_16dp"
+            android:src="@drawable/ic_outline_photo_camera_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

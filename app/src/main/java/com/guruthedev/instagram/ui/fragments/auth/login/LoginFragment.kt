@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.guruthedev.instagram.MainActivity
 import com.guruthedev.instagram.R
-import com.guruthedev.instagram.data.pref.IgPreference
 import com.guruthedev.instagram.databinding.FragmentLoginBinding
 import com.guruthedev.instagram.extensions.getSpanValues
 import com.guruthedev.instagram.extensions.showToast
@@ -43,7 +42,7 @@ class LoginFragment : Fragment() {
         viewModel.taskResponseLiveData.observe(
             viewLifecycleOwner
         ) { taskResult ->
-            (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_postFragment)
+            (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_reelsFragment)
         }
         viewModel.errorLiveData.observe(
             viewLifecycleOwner
