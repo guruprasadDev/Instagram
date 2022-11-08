@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
+import com.guruthedev.instagram.R
 import com.guruthedev.instagram.data.ExoPlayerItem
 import com.guruthedev.instagram.data.Reels
 import com.guruthedev.instagram.databinding.FragmentReelsBinding
@@ -22,7 +23,6 @@ class ReelsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentReelsBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -31,10 +31,10 @@ class ReelsFragment : Fragment() {
         playVideos()
         registerPageCallBack()
         videoInitListener()
-
     }
 
     private fun videoInitListener() {
+
         adapter =
             VideoAdapter(requireContext(), videos, object : VideoAdapter.OnVideoPreparedListener {
                 override fun onVideoPrepared(exoPlayerItem: ExoPlayerItem) {
@@ -42,12 +42,11 @@ class ReelsFragment : Fragment() {
                 }
             })
         binding.viewPager2.adapter = adapter
-
     }
 
     private fun registerPageCallBack() {
         binding.viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
+            override fun onPageSelected(position:Int) {
                 val previousIndex = exoPlayerItems.indexOfFirst { it.exoPlayer.isPlaying }
                 if (previousIndex != -1) {
                     val player = exoPlayerItems[previousIndex].exoPlayer
@@ -67,94 +66,73 @@ class ReelsFragment : Fragment() {
     private fun playVideos() {
         videos.add(
             Reels(
-                "its_me_guru_reddy",
-                "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-                "https://ca.slack-edge.com/T02TLUWLZ-U040DBX2XUG-0a35a4f5f560-512",
-                "600k",
-                "22k",
-                "Forest fun",
+                getString(R.string.videos_title),
+                getString(R.string.video_url),
+                getString(R.string.img_url),
+                getString(R.string.video_likes_count),
+                getString(R.string.video_comment_count),
+                getString(R.string.video_des),
             )
         )
 
         videos.add(
             Reels(
-                "iam_sai_kumar",
-                "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-                "https://ca.slack-edge.com/T02TLUWLZ-U040DBX2XUG-0a35a4f5f560-512",
-                "789k",
-                "360",
-                "beautiful video"
-            )
-        )
-
-        videos.add(
-            Reels(
-                "vishnu.8",
-                "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-            "https://ca.slack-edge.com/T02TLUWLZ-U040DBX2XUG-0a35a4f5f560-512",
-            "229k",
-                "66",
-                "hey lets dream big",
+                getString(R.string.videos_title),
+                getString(R.string.video_url),
+                getString(R.string.img_url),
+                getString(R.string.video_likes_count),
+                getString(R.string.video_comment_count),
+                getString(R.string.video_des),
             )
         )
         videos.add(
             Reels(
-                "iam_venu",
-                "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-                "https://ca.slack-edge.com/T02TLUWLZ-U040DBX2XUG-0a35a4f5f560-512",
-                "788k",
-                "98k",
-                "success makes life happier",
+                getString(R.string.videos_title),
+                getString(R.string.video_url),
+                getString(R.string.img_url),
+                getString(R.string.video_likes_count),
+                getString(R.string.video_comment_count),
+                getString(R.string.video_des),
             )
         )
         videos.add(
             Reels(
-                "itz_me_chandu",
-                "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-                "https://ca.slack-edge.com/T02TLUWLZ-U040DBX2XUG-0a35a4f5f560-512",
-                "98",
-                "55",
-                "great day",
+                getString(R.string.videos_title),
+                getString(R.string.video_url),
+                getString(R.string.img_url),
+                getString(R.string.video_likes_count),
+                getString(R.string.video_comment_count),
+                getString(R.string.video_des),
             )
         )
         videos.add(
             Reels(
-                "Elon_Musk",
-                "https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
-                "https://ca.slack-edge.com/T02TLUWLZ-U040DBX2XUG-0a35a4f5f560-512",
-                "219k",
-                "99k",
-                "life line",
+                getString(R.string.videos_title),
+                getString(R.string.video_url),
+                getString(R.string.img_url),
+                getString(R.string.video_likes_count),
+                getString(R.string.video_comment_count),
+                getString(R.string.video_des),
             )
         )
         videos.add(
             Reels(
-                "guru21",
-                "https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
-                "https://ca.slack-edge.com/T02TLUWLZ-U040DBX2XUG-0a35a4f5f560-512",
-                "123k",
-                "90k",
-                "nice work",
+                getString(R.string.videos_title),
+                getString(R.string.video_url),
+                getString(R.string.img_url),
+                getString(R.string.video_likes_count),
+                getString(R.string.video_comment_count),
+                getString(R.string.video_des),
             )
         )
         videos.add(
             Reels(
-                "GV_Instance",
-                "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
-                "https://ca.slack-edge.com/T02TLUWLZ-U040DBX2XUG-0a35a4f5f560-512",
-                "890K",
-                "345",
-                "hey",
-            )
-        )
-        videos.add(
-            Reels(
-                "For Bigger Escape",
-                "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-                "https://ca.slack-edge.com/T02TLUWLZ-U040DBX2XUG-0a35a4f5f560-512",
-                "901k",
-                "297k",
-                "programming",
+                getString(R.string.videos_title),
+                getString(R.string.video_url),
+                getString(R.string.img_url),
+                getString(R.string.video_likes_count),
+                getString(R.string.video_comment_count),
+                getString(R.string.video_des),
             )
         )
     }
