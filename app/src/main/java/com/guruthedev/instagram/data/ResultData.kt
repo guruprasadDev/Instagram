@@ -1,3 +1,3 @@
 package com.guruthedev.instagram.data
 
-data class ResultData(val fullName:String,val username:String,val bio:String)
+data class ResultData(var fullName:String,var username:String,var bio:String)
