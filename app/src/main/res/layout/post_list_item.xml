@@ -17,7 +17,6 @@
             android:id="@+id/imgProfile"
             android:layout_width="@dimen/normal_32dp"
             android:layout_height="@dimen/normal_32dp"
-            android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/small_16dp"
             android:layout_marginTop="@dimen/small_16dp"
             app:loadImage="@{instagramPost.logo}"
@@ -26,8 +25,8 @@
 
         <TextView
             android:id="@+id/tvUsername"
-            android:layout_width="2dp"
-            android:layout_height="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/small_8dp"
             android:layout_marginTop="@dimen/small_4dp"
             android:text="@{instagramPost.name}"
