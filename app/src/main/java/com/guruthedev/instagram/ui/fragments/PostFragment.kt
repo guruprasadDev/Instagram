@@ -158,15 +158,18 @@ class PostFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun animateFlash() {
-        binding.root.postDelayed({
-            binding.root.foreground = ColorDrawable(Color.WHITE)
-            binding.root.postDelayed({
-                binding.root.foreground = null
-            }, 50)
-        }, 100)
+        binding.root.apply {
+            postDelayed({
+                foreground = ColorDrawable(Color.WHITE)
+                postDelayed({
+                    foreground = null
+                }, 50)
+            }, 100)
+        }
+
     }
 
     companion object {
-        const val TAG = "MainActivity"
+        const val TAG = "PostFragment"
     }
 }
