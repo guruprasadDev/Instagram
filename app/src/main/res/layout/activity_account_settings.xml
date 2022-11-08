@@ -58,7 +58,8 @@
             android:layout_below="@id/app_bar_profile_layout"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/small_16dp"
-            android:src="@drawable/profile" />
+            android:src="@drawable/profile"
+            tools:ignore="ImageContrastCheck" />
 
         <TextView
             android:id="@+id/change_image_text_btn"
@@ -90,7 +91,8 @@
             android:layout_marginHorizontal="@dimen/small_20dp"
             android:layout_marginTop="@dimen/small_16dp"
             android:hint="@string/hint_username"
-            android:inputType="text" />
+            android:inputType="text"
+            android:minHeight="48dp" />
 
         <EditText
             android:id="@+id/bio_profile_frag"
@@ -100,35 +102,8 @@
             android:layout_marginHorizontal="@dimen/small_20dp"
             android:layout_marginTop="@dimen/small_16dp"
             android:hint="@string/bio_dec"
-            android:inputType="text" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/fullNameTxt"
-            android:text="fullname"
-            android:textSize="@dimen/small_24dp"
-            android:layout_below="@id/bio_profile_frag"
-            android:gravity="center"
-            android:layout_marginTop="@dimen/small_16dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/usernameTxt"
-            android:text="username"
-            android:textSize="@dimen/small_24dp"
-            android:layout_below="@id/fullNameTxt"
-            android:gravity="center"
-            android:layout_marginTop="@dimen/small_16dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/bioTxt"
-            android:text="bio"
-            android:textSize="@dimen/small_24dp"
-            android:layout_below="@id/usernameTxt"
-            android:gravity="center"
-            android:layout_marginTop="@dimen/small_16dp"/>
+            android:inputType="text"
+            android:minHeight="48dp" />
 
         <Button
             android:id="@+id/logout_btn"

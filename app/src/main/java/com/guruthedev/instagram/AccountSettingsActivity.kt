@@ -27,9 +27,6 @@ class AccountSettingsActivity : AppCompatActivity() {
     }
     @Subscribe(threadMode = ThreadMode.MAIN_ORDERED)
     fun onEvent(resultData: ResultData){
-        binding.fullNameTxt.text=resultData.fullName
-        binding.usernameTxt.text=resultData.username
-        binding.bioTxt.text=resultData.bio
     }
     override fun onStop() {
         super.onStop()
