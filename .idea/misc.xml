@@ -16,7 +16,7 @@
         <entry key="app/src/main/res/drawable/ic_shutter.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_switch_camera.xml" value="0.1" />
         <entry key="app/src/main/res/layout-sw600dp/activity_sign_up.xml" value="0.15437158469945356" />
-        <entry key="app/src/main/res/layout/activity_account_settings.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_account_settings.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.24951782226562497" />

@@ -55,4 +55,5 @@
     <string name="video_comment_count">22k</string>
     <string name="video_des">Forest fun</string>
     <string name="video_error_message">Can\'t play this video</string>
+    <string name="add_btn">Add</string>
 </resources>
