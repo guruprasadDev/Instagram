@@ -105,6 +105,33 @@
             android:inputType="text"
             android:minHeight="48dp" />
 
+        <TextView
+            android:id="@+id/tvFullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bio_profile_frag"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/small_16dp"
+            android:text="@string/hint_full_name" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvFullName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/small_16dp"
+            android:text="@string/hint_username" />
+
+        <TextView
+            android:id="@+id/tvBio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvUsername"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/small_16dp"
+            android:text="@string/bio_dec" />
+
         <Button
             android:id="@+id/logout_btn"
             android:layout_width="match_parent"
@@ -126,8 +153,8 @@
             android:layout_marginHorizontal="@dimen/small_20dp"
             android:layout_marginTop="@dimen/small_4dp"
             android:layout_marginBottom="@dimen/small_8dp"
-            android:backgroundTint="@color/colorPrimaryDark"
-            android:text="Add"
+            android:backgroundTint="@color/colorBlack"
+            android:text="@string/add_btn"
             android:textAllCaps="false"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_12sp" />
