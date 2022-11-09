@@ -3,7 +3,7 @@ package com.guruthedev.instagram.service
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
-import com.guruthedev.instagram.data.ResultData
+import com.guruthedev.instagram.data.MessageEvent
 import com.guruthedev.instagram.utils.Constants
 import org.greenrobot.eventbus.EventBus
 
@@ -13,7 +13,7 @@ class PassingData : Service() {
         val fullName = intent?.getStringExtra(Constants.FULL_NAME) ?: ""
         val username = intent?.getStringExtra(Constants.USERNAME) ?: ""
         val bio = intent?.getStringExtra(Constants.BIO) ?: ""
-        EventBus.getDefault().post(ResultData(fullName, username, bio))
+        EventBus.getDefault().post(MessageEvent(fullName, username, bio))
         stopSelf()
         return super.onStartCommand(intent, flags, startId)
     }

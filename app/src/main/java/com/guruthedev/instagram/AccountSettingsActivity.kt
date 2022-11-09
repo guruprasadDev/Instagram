@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.guruthedev.instagram.data.ResultData
+import com.guruthedev.instagram.data.MessageEvent
 import com.guruthedev.instagram.databinding.ActivityAccountSettingsBinding
 import com.guruthedev.instagram.service.PassingData
 import com.guruthedev.instagram.utils.Constants
@@ -30,11 +30,11 @@ class AccountSettingsActivity : AppCompatActivity() {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onEvent(resultData: ResultData) {
+    fun onEvent(messageEvent: MessageEvent) {
         binding.apply {
-            tvFullName.text = resultData.fullName
-            tvUsername.text = resultData.username
-            tvBio.text = resultData.bio
+            tvFullName.text = messageEvent.fullName
+            tvUsername.text = messageEvent.username
+            tvBio.text = messageEvent.bio
         }
     }
 
