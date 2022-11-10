@@ -74,7 +74,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/full_name_profile_frag"
+            android:id="@+id/full_name_profile_edt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/change_image_text_btn"
@@ -84,10 +84,10 @@
             android:inputType="text" />
 
         <EditText
-            android:id="@+id/username_profile_frag"
+            android:id="@+id/username_profile_edt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/full_name_profile_frag"
+            android:layout_below="@id/full_name_profile_edt"
             android:layout_marginHorizontal="@dimen/small_20dp"
             android:layout_marginTop="@dimen/small_16dp"
             android:hint="@string/hint_username"
@@ -95,10 +95,10 @@
             android:minHeight="48dp" />
 
         <EditText
-            android:id="@+id/bio_profile_frag"
+            android:id="@+id/bio_profile_edt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/username_profile_frag"
+            android:layout_below="@id/username_profile_edt"
             android:layout_marginHorizontal="@dimen/small_20dp"
             android:layout_marginTop="@dimen/small_16dp"
             android:hint="@string/bio_dec"
@@ -109,7 +109,7 @@
             android:id="@+id/tvFullName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/bio_profile_frag"
+            android:layout_below="@id/bio_profile_edt"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/small_16dp"
             android:text="@string/hint_full_name" />
@@ -136,7 +136,7 @@
             android:id="@+id/logout_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@id/add_btn"
+            android:layout_above="@id/submitBtn"
             android:layout_marginHorizontal="@dimen/small_20dp"
             android:layout_marginBottom="@dimen/small_4dp"
             android:background="@color/colorPrimaryDark"
@@ -146,7 +146,7 @@
             android:textSize="@dimen/text_size_12sp" />
 
         <Button
-            android:id="@+id/add_btn"
+            android:id="@+id/submitBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -154,10 +154,9 @@
             android:layout_marginTop="@dimen/small_4dp"
             android:layout_marginBottom="@dimen/small_8dp"
             android:backgroundTint="@color/colorBlack"
-            android:text="@string/add_btn"
+            android:text="Submit"
             android:textAllCaps="false"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_12sp" />
-
     </RelativeLayout>
 </layout>

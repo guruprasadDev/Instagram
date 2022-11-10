@@ -18,23 +18,26 @@ class AccountSettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_account_settings)
         EventBus.getDefault().register(this)
-        binding.addBtn.setOnClickListener {
-            val intent = Intent(this, PassingData::class.java)
-            intent.apply {
-                putExtra(Constants.FULL_NAME, binding.fullNameProfileFrag.text.toString())
-                putExtra(Constants.USERNAME, binding.usernameProfileFrag.text.toString())
-                putExtra(Constants.BIO, binding.bioProfileFrag.text.toString())
-                startService(intent)
+        binding.submitBtn.setOnClickListener {
+            Intent(this, PassingData::class.java).apply {
+                with(binding) {
+                    putExtra(Constants.FULL_NAME, fullNameProfileEdt.text.toString())
+                    putExtra(Constants.USERNAME, usernameProfileEdt.text.toString())
+                    putExtra(Constants.BIO, bioProfileEdt.text.toString())
+                }
+                startService(this)
             }
         }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(messageEvent: MessageEvent) {
-        binding.apply {
-            tvFullName.text = messageEvent.fullName
-            tvUsername.text = messageEvent.username
-            tvBio.text = messageEvent.bio
+        with(messageEvent) {
+            binding.apply {
+                tvFullName.text = fullName
+                tvUsername.text = username
+                tvBio.text = bio
+            }
         }
     }
 
