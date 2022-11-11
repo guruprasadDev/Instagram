@@ -27,7 +27,7 @@
                 android:layout_width="@dimen/large_60dp"
                 android:layout_height="@dimen/large_60dp"
                 android:layout_centerInParent="true"
-                app:loadImageUrl="@{storyFeed.picture}"
+                app:loadImage="@{storyFeed.picture}"
                 />
 
             <ImageView

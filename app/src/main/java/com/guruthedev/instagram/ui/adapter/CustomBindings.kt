@@ -14,6 +14,7 @@ fun bindingImage(userImageView:ImageView,imageUri:String){
         .placeholder(R.drawable.instagram)
         .error(R.drawable.error)
         .fitCenter()
+        .circleCrop()
         .apply(RequestOptions.circleCropTransform())
         .diskCacheStrategy(DiskCacheStrategy.ALL)
         .onlyRetrieveFromCache(true)
@@ -25,10 +26,6 @@ fun bindingImageLogo(userImageView:ImageView,imageUri:String){
         .load(imageUri)
         .placeholder(R.drawable.instagram)
         .error(R.drawable.error)
-        .fitCenter()
-        .circleCrop()
-        .apply(RequestOptions.circleCropTransform())
         .diskCacheStrategy(DiskCacheStrategy.ALL)
         .into(userImageView)
-
 }
