@@ -26,9 +26,9 @@
                 android:id="@+id/profile_img"
                 android:layout_width="@dimen/large_60dp"
                 android:layout_height="@dimen/large_60dp"
-                app:loadImage="@{storyFeed.picture}"
                 android:layout_centerInParent="true"
-                 />
+                app:loadImageUrl="@{storyFeed.picture}"
+                />
 
             <ImageView
                 android:id="@+id/ic_add_img"
