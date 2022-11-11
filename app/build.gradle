@@ -68,7 +68,6 @@ dependencies {
     implementation "androidx.camera:camera-video:1.1.0"
     implementation "androidx.camera:camera-view:1.1.0"
     implementation 'com.google.android.exoplayer:exoplayer:2.18.1'
-    implementation 'com.squareup.picasso:picasso:2.71828'
 }
 apply plugin: "androidx.navigation.safeargs.kotlin"
 

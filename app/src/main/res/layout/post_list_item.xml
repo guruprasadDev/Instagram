@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
             name="instagramPost"
-            type="com.guruthedev.instagram.data.RecyclerData" />
+            type="com.guruthedev.instagram.data.Post" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +19,7 @@
             android:layout_height="@dimen/normal_32dp"
             android:layout_marginStart="@dimen/small_16dp"
             android:layout_marginTop="@dimen/small_16dp"
-            app:loadImage="@{instagramPost.owner.avatar_url}"
+            app:loadImage="@{instagramPost.owner.postImage}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_4dp"
-            app:loadImage="@{instagramPost.owner.avatar_url}"
+            app:loadImage="@{instagramPost.owner.postImage}"
             app:layout_constraintTop_toBottomOf="@id/imgProfile" />
 
         <ImageView
@@ -79,13 +79,13 @@
             app:layout_constraintTop_toBottomOf="@id/postImg" />
 
         <ImageView
-            android:id="@+id/send_icon"
+            android:id="@+id/img_send_icon"
             android:layout_width="@dimen/small_28dp"
             android:layout_height="@dimen/small_28dp"
             android:layout_marginStart="@dimen/small_16dp"
             android:layout_marginTop="8dp"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/sendicon"
+            android:src="@drawable/ic_send"
             app:layout_constraintStart_toEndOf="@id/replyIcon"
             app:layout_constraintTop_toBottomOf="@id/postImg" />
 
@@ -107,9 +107,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/small_16dp"
             android:layout_marginTop="@dimen/small_16dp"
-            android:text="700"
             android:textColor="@color/colorGray"
             android:textSize="@dimen/text_size_14sp"
+            tools:text="700"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/HeartIcon" />

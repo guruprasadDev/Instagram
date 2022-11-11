@@ -18,7 +18,8 @@ import com.guruthedev.instagram.viewModel.HomeFragmentViewModel
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var adapter: FeedPostAdapter
+    private lateinit var viewModel: HomeFragmentViewModel
+    private var feedPostAdapter: FeedPostAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,32 +36,31 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initViewModel()
+        viewModel = ViewModelProvider(this).get(HomeFragmentViewModel::class.java)
+        initView()
         initObserver()
         newInstance()
     }
 
-    private fun initViewModel() {
-        binding.apply {
-            recyclerViewHome.layoutManager = LinearLayoutManager(activity)
-            val decoration = DividerItemDecoration(activity, DividerItemDecoration.VERTICAL)
-            recyclerViewHome.addItemDecoration(decoration)
-            adapter = FeedPostAdapter()
-            recyclerViewHome.adapter = adapter
-
+    private fun initView() {
+        val decoration = DividerItemDecoration(activity, DividerItemDecoration.VERTICAL)
+        feedPostAdapter = FeedPostAdapter()
+        binding.recyclerViewHome.apply {
+            layoutManager = LinearLayoutManager(activity)
+            addItemDecoration(decoration)
+            adapter = feedPostAdapter
         }
     }
 
     private fun initObserver() {
-        val viewModel = ViewModelProvider(this).get(HomeFragmentViewModel::class.java)
-        viewModel.getRecycleListObserver().observe(viewLifecycleOwner) { post ->
-            if (post != null) {
-                adapter.setUpdatedData(post.items)
-            } else {
+        viewModel.getPostResponse().observe(viewLifecycleOwner) { post ->
+            post?.let { instaPost ->
+                feedPostAdapter?.setUpdatedData(instaPost.items)
+            } ?: run {
                 Toast.makeText(activity, "Error in getting data", Toast.LENGTH_SHORT).show()
             }
         }
-        viewModel.makeApiCall()
+        viewModel.getPosts()
     }
 
     private fun getStatus(): ArrayList<InstaStatus> {
@@ -75,7 +75,6 @@ class HomeFragment : Fragment() {
     }
 
     companion object {
-        @JvmStatic
         fun newInstance() = HomeFragment()
     }
 }
