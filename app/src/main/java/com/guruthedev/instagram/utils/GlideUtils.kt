@@ -53,6 +53,7 @@ fun loadImageUrlForStory(
         .placeholder(R.drawable.instagram)
         .error(R.drawable.error)
         .fitCenter()
+        .circleCrop()
         .apply(circleCropTransform())
         .diskCacheStrategy(DiskCacheStrategy.ALL)
         .into(imageView)
