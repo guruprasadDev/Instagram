@@ -43,7 +43,7 @@ class LoginFragment : Fragment() {
         viewModel.taskResponseLiveData.observe(
             viewLifecycleOwner
         ) { taskResult ->
-            (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_homeFragment)
+            (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_postFragment)
         }
         viewModel.errorLiveData.observe(
             viewLifecycleOwner

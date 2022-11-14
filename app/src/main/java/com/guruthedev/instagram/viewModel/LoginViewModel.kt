@@ -34,8 +34,6 @@ class LoginViewModel : ViewModel() {
             firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { taskResult ->
                     if (taskResult.isSuccessful) {
-
-                        //SessionPrefHelper.saveEmailPostLogin(igPreference, email)
                         _taskResponseLiveData.postValue(taskResult)
                     } else {
                         _errorLiveData.postValue(
