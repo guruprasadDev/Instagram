@@ -37,4 +37,7 @@
     <string name="error_empty_username">username required</string>
     <string name="error_empty_email">Email id required</string>
     <string name="error_empty_password">Password required</string>
+    <string name="context_text">its_me_guru_reddy just shared a post</string>
+    <string name="context_title">Instagram</string>
+    <string name="submit_btn">Submit</string>
 </resources>

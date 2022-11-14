@@ -30,7 +30,7 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val activity = requireActivity() as MainActivity
-        var isLoggedIn: String? = "false"
+        var isLoggedIn: String?
         //if (SessionPrefHelper.isLoggedIn(igPreference)) {
         lifecycleScope.launch {
             isLoggedIn = igPreference.read(IS_LOGIN)
