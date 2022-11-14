@@ -21,9 +21,9 @@ class AccountSettingsActivity : AppCompatActivity() {
         binding.submitBtn.setOnClickListener {
             Intent(this, PassingData::class.java).apply {
                 with(binding) {
-                    putExtra("full_name", fullNameProfileEdt.text.toString())
-                    putExtra("username", usernameProfileEdt.text.toString())
-                    putExtra("bio", bioProfileEdt.text.toString())
+                    putExtra(Constants.FULL_NAME, fullNameProfileEdt.text.toString())
+                    putExtra(Constants.USERNAME, usernameProfileEdt.text.toString())
+                    putExtra(Constants.BIO, bioProfileEdt.text.toString())
                 }
                 startService(this)
             }

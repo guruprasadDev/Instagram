@@ -10,9 +10,9 @@ import org.greenrobot.eventbus.EventBus
 class PassingData : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        val fullName = intent?.getStringExtra("full_name") ?: ""
-        val username = intent?.getStringExtra("username") ?: ""
-        val bio = intent?.getStringExtra("bio") ?: ""
+        val fullName = intent?.getStringExtra(Constants.FULL_NAME) ?: ""
+        val username = intent?.getStringExtra(Constants.USERNAME) ?: ""
+        val bio = intent?.getStringExtra(Constants.BIO) ?: ""
         EventBus.getDefault().post(MessageEvent(fullName, username, bio))
         stopSelf()
         return super.onStartCommand(intent, flags, startId)
