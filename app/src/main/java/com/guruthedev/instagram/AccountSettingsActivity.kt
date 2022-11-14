@@ -17,32 +17,5 @@ class AccountSettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_account_settings)
-        EventBus.getDefault().register(this)
-        binding.submitBtn.setOnClickListener {
-            Intent(this, PassingData::class.java).apply {
-                with(binding) {
-                    putExtra(Constants.FULL_NAME, fullNameProfileEdt.text.toString())
-                    putExtra(Constants.USERNAME, usernameProfileEdt.text.toString())
-                    putExtra(Constants.BIO, bioProfileEdt.text.toString())
-                }
-                startService(this)
-            }
-        }
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onEvent(messageEvent: MessageEvent) {
-        with(messageEvent) {
-            binding.apply {
-                tvFullName.text = fullName
-                tvUsername.text = username
-                tvBio.text = bio
-            }
-        }
-    }
-
-    override fun onStop() {
-        super.onStop()
-        EventBus.getDefault().unregister(this)
     }
 }
