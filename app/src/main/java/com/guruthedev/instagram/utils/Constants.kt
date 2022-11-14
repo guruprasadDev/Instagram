@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.guruthedev.instagram.utils
 object Constants {
     const val TAG = "cameraX"
@@ -6,3 +7,13 @@ object Constants {
     val REQUIRED_PERMISSION = arrayOf(android.Manifest.permission.CAMERA)
 
 }
+||||||| 7395575
+=======
+package com.guruthedev.instagram.utils
+
+object Constants {
+    const val FULL_NAME = "FULL_NAME"
+    const val USERNAME = "USERNAME"
+    const val BIO = "BIO"
+}
+>>>>>>> master
