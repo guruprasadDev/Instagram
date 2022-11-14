@@ -43,6 +43,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/img_capture_btn" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
