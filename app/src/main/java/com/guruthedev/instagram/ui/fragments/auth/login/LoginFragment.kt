@@ -8,8 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.guruthedev.instagram.IgApplication
 import com.guruthedev.instagram.MainActivity
 import com.guruthedev.instagram.R
 import com.guruthedev.instagram.data.pref.IgPreference
@@ -24,8 +26,8 @@ class LoginFragment : Fragment() {
     private lateinit var viewModel: LoginViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
@@ -41,12 +43,12 @@ class LoginFragment : Fragment() {
 
     private fun initObserver() {
         viewModel.taskResponseLiveData.observe(
-            viewLifecycleOwner
+                viewLifecycleOwner
         ) { taskResult ->
             (activity as MainActivity).navigateTo(actionId = R.id.action_loginFragment_to_postFragment)
         }
         viewModel.errorLiveData.observe(
-            viewLifecycleOwner
+                viewLifecycleOwner
         ) { loginError ->
             with(requireContext()) {
                 when (loginError.loginErrorType) {
@@ -84,7 +86,11 @@ class LoginFragment : Fragment() {
             loginBtn.setOnClickListener {
                 val email = emailEdt.text.toString().trim()
                 val password = passwordEdt.text.toString().trim()
-                viewModel.validateCred(email, password)
+                if (IgApplication.instances.isConnectedToInternet) {
+                    viewModel.validateCred(email, password)
+                } else {
+                    requireContext().showToast("Please check your internet connection")
+                }
             }
         }
     }
