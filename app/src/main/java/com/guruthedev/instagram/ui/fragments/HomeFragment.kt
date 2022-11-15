@@ -43,11 +43,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun initView() {
-        val decoration = DividerItemDecoration(activity, DividerItemDecoration.VERTICAL)
         feedPostAdapter = FeedPostAdapter()
         binding.recyclerViewHome.apply {
-            layoutManager = LinearLayoutManager(activity)
-            addItemDecoration(decoration)
             adapter = feedPostAdapter
         }
     }
