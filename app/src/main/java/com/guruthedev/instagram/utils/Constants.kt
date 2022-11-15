@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.guruthedev.instagram.utils
 
 object Constants {
@@ -7,3 +8,13 @@ object Constants {
     const val USERNAME = "USERNAME"
     const val BIO = "BIO"
 }
+||||||| 7395575
+=======
+package com.guruthedev.instagram.utils
+
+object Constants {
+    const val FULL_NAME = "FULL_NAME"
+    const val USERNAME = "USERNAME"
+    const val BIO = "BIO"
+}
+>>>>>>> master
