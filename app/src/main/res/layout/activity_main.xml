@@ -21,10 +21,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:attr/windowBackground"
+            android:visibility="invisible"
             app:itemIconTint="@drawable/bottom_nav_icon_color"
             app:labelVisibilityMode="unlabeled"
             app:menu="@menu/bottom_nav_menu"
-            android:visibility="invisible"
             app:navGraph="@navigation/nav_graph" />
 
     </LinearLayout>

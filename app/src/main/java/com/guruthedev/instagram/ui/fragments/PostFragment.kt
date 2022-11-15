@@ -116,6 +116,7 @@ class PostFragment : Fragment() {
             ).format(System.currentTimeMillis()) + ".jpg"
         )
         val outputOption = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+
         imageCapture.takePicture(
             outputOption, ContextCompat.getMainExecutor(requireContext()),
             object : ImageCapture.OnImageSavedCallback {
@@ -129,6 +130,7 @@ class PostFragment : Fragment() {
                         "$msg $savedUri",
                         Toast.LENGTH_SHORT
                     ).show()
+
                 }
 
                 override fun onError(exception: ImageCaptureException) {
@@ -136,6 +138,7 @@ class PostFragment : Fragment() {
                 }
             }
         )
+
     }
 
     private fun startCamera() {
@@ -158,18 +161,15 @@ class PostFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.M)
     private fun animateFlash() {
-        binding.root.apply {
-            postDelayed({
-                foreground = ColorDrawable(Color.WHITE)
-                postDelayed({
-                    foreground = null
-                }, 50)
-            }, 100)
-        }
-
+        binding.root.postDelayed({
+            binding.root.foreground = ColorDrawable(Color.WHITE)
+            binding.root.postDelayed({
+                binding.root.foreground = null
+            }, 50)
+        }, 100)
     }
 
     companion object {
-        const val TAG = "PostFragment"
+        const val TAG = "MainActivity"
     }
 }
