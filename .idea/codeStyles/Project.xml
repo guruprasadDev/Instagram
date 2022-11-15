@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+<<<<<<<<< Temporary merge branch 1
 <component name="ProjectCodeStyleConfiguration">
   <code_scheme name="Project" version="173">
     <JetCodeStyleSettings>
@@ -122,8 +122,8 @@
     </codeStyleSettings>
   </code_scheme>
 </component>
-||||||| 6f6b5d6
-=======
+||||||||| 6f6b5d6
+=========
 <component name="ProjectCodeStyleConfiguration">
   <code_scheme name="Project" version="173">
     <codeStyleSettings language="XML">
@@ -241,4 +241,4 @@
     </codeStyleSettings>
   </code_scheme>
 </component>
->>>>>>> master
+>>>>>>>>> Temporary merge branch 2
