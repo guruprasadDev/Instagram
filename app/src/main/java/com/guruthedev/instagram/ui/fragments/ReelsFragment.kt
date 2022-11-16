@@ -6,10 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
-import com.guruthedev.instagram.data.Reels
 import com.guruthedev.instagram.databinding.FragmentReelsBinding
 import com.guruthedev.instagram.ui.adapter.ReelsAdapter
 import com.guruthedev.instagram.viewModel.ReelsFragmentViewModel
