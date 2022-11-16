@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.exoplayer2.ui.StyledPlayerView
-            android:id="@+id/playerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:resize_mode="fill"
-            app:use_controller="false" />
 
         <ProgressBar
             android:id="@+id/pbLoading"
@@ -19,15 +14,18 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/playerView" />
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="@dimen/small_20dp" />
+        <VideoView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
         <ImageView
             android:id="@+id/imgProfile"
@@ -58,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/small_8dp"
             android:layout_marginBottom="@dimen/large_72dp"
-            android:text="·Follow"
+            tool:text="·Follow"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_16sp"
             android:textStyle="bold"
@@ -71,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/small_20dp"
             android:layout_marginTop="@dimen/small_8dp"
-            android:text="des"
+            tool:text="des"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imgProfile" />
@@ -94,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_8dp"
             android:layout_marginEnd="@dimen/small_20dp"
-            android:text="123k"
+            tool:text="000"
             android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/HeartIcon" />
@@ -116,7 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_8dp"
             android:layout_marginEnd="@dimen/small_20dp"
-            android:text="468"
+            tool:text="000"
             android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/replyIcon" />
@@ -146,7 +144,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_20dp"
-            android:text="@string/reels"
+            tool:text="Reels"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/small_24dp"
             app:layout_constraintEnd_toEndOf="parent"
