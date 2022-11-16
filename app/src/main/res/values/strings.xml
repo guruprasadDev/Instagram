@@ -40,4 +40,6 @@
     <string name="context_text">its_me_guru_reddy just shared a post</string>
     <string name="context_title">Instagram</string>
     <string name="submit_btn">Submit</string>
+    <string name="reels">reels</string>
+    <string name="video_error_message">video can\'t play</string>
 </resources>
