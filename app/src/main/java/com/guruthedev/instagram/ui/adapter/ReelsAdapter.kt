@@ -12,41 +12,42 @@ import com.guruthedev.instagram.R
 import com.guruthedev.instagram.data.Reels
 import com.guruthedev.instagram.databinding.VideoListItemBinding
 
-
 class ReelsAdapter(options: FirebaseRecyclerOptions<Reels?>) :
     FirebaseRecyclerAdapter<Reels?, ReelsAdapter.MyViewHolder?>(options) {
-    private lateinit var binding: VideoListItemBinding
-    var isFav = false
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-
-        binding = VideoListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return MyViewHolder(binding.root)
+        return MyViewHolder(
+            VideoListItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int, model: Reels) {
         holder.setData(model, holder.itemView.context)
     }
 
-    inner class MyViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+    inner class MyViewHolder(val binding: VideoListItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun setData(obj: Reels, context: Context) {
+        fun setData(reel: Reels, context: Context) {
             binding.apply {
-                videoView.setVideoPath(obj.url)
-                tvUsername.text = obj.tittle
-                tvLikesTapCount.text = obj.likes
-                tvComments.text = obj.comments.toString()
-                tvDescription.text = obj.desc
+                videoView.setVideoPath(reel.url)
+                tvUsername.text = reel.tittle
+                tvLikesTapCount.text = reel.likes
+                tvComments.text = reel.comments.toString()
+                tvDescription.text = reel.desc
                 videoView.setOnPreparedListener { mediaPlayer ->
                     pbLoading.visibility = View.GONE
                     mediaPlayer.start()
-                    videoView.setOnCompletionListener { mediaPlayer -> mediaPlayer.start() }
+                    videoView.setOnCompletionListener { mediaPlayer.start() }
                     with(HeartIcon) {
                         setOnClickListener {
                             setImageResource(R.drawable.fav_fill)
                             setColorFilter(ContextCompat.getColor(context, R.color.red))
                         }
-                        isFav = true
                     }
                 }
             }
