@@ -16,6 +16,7 @@
         <entry key="app/src/main/res/drawable/ic_recording.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_shutter.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_switch_camera.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/rounded_corner_view.xml" value="0.118" />
         <entry key="app/src/main/res/layout-sw600dp/activity_sign_up.xml" value="0.15437158469945356" />
         <entry key="app/src/main/res/layout/activity_account_settings.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
@@ -43,7 +44,7 @@
         <entry key="app/src/main/res/layout/story_items.xml" value="0.1" />
         <entry key="app/src/main/res/layout/switch_item.xml" value="0.2942708333333333" />
         <entry key="app/src/main/res/layout/video_layout.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/video_list_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/video_list_item.xml" value="0.2926829268292683" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>
     </option>
