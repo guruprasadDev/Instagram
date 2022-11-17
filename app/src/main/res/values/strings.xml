@@ -42,4 +42,10 @@
     <string name="submit_btn">Submit</string>
     <string name="reels">reels</string>
     <string name="video_error_message">video can\'t play</string>
+    <string name="camera_permission">The camera permission is necessary</string>
+    <string name="reels_txt">Reels</string>
+    <string name="follow_txt">·Follow</string>
+    <string name="des_txt">des</string>
+    <string name="likes_count_txt">123M</string>
+    <string name="comments_count">123k</string>
 </resources>
