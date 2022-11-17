@@ -19,7 +19,7 @@ class HomeFragmentViewModel:ViewModel() {
     fun getPosts(){
         viewModelScope.launch(Dispatchers.IO){
             val retroInstance = RetroInstance.getRetroInstance().create(RetroService::class.java)
-            val response = retroInstance.getDataFromApi("ny")
+            val response = retroInstance.getFeedPosts("ny")
             recyclerListData.postValue(response)
         }
     }
