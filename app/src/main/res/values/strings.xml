@@ -39,21 +39,10 @@
     <string name="error_empty_password">Password required</string>
     <string name="context_text">its_me_guru_reddy just shared a post</string>
     <string name="context_title">Instagram</string>
-    <string name="camerax">CameraX</string>
-    <string name="camera_x">Camera X</string>
-    <string name="cancel">Cancel</string>
-    <string name="choose_photo">Choose Photo</string>
-    <string name="delete_photo">Delete Photo</string>
-    <string name="edit_photo">Edit Photo</string>
-    <string name="record_video">Record Video</string>
-    <string name="take_photo">Take Photo</string>
-    <string name="reels">Reels</string>
-    <string name="videos_title">its_me_guru_reddy</string>
-    <string name="video_url">http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4</string>
-    <string name="img_url">https://ca.slack-edge.com/T02TLUWLZ-U040DBX2XUG-0a35a4f5f560-512</string>
-    <string name="video_likes_count">600k</string>
-    <string name="video_comment_count">22k</string>
-    <string name="video_des">Forest fun</string>
-    <string name="video_error_message">Can\'t play this video</string>
-    <string name="add_btn">Add</string>
+    <string name="submit_btn">Submit</string>
+    <string name="reels">reels</string>
+    <string name="video_error_message">video can\'t play</string>
+    <string name="camera_permission">The camera permission is necessary</string>
+    <string name="reels_txt">Reels</string>
+    <string name="follow_txt">Follow</string>
 </resources>
