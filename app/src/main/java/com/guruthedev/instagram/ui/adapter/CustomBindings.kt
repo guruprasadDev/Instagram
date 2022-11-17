@@ -8,7 +8,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.guruthedev.instagram.R
 
 @BindingAdapter("loadImage")
-fun bindingImage(userImageView:ImageView,imageUri:String){
+fun bindingImage(userImageView: ImageView, imageUri: String) {
     Glide.with(userImageView.context)
         .load(imageUri)
         .placeholder(R.drawable.instagram)
@@ -20,8 +20,9 @@ fun bindingImage(userImageView:ImageView,imageUri:String){
         .onlyRetrieveFromCache(true)
         .into(userImageView)
 }
+
 @BindingAdapter("loadImageUrl")
-fun bindingImageLogo(userImageView:ImageView,imageUri:String){
+fun bindingImageLogo(userImageView: ImageView, imageUri: String) {
     Glide.with(userImageView.context)
         .load(imageUri)
         .placeholder(R.drawable.instagram)
