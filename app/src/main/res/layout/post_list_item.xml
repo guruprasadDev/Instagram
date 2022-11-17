@@ -57,7 +57,7 @@
             app:loadImageUrl="@{instagramPost.owner.postImage}" />
 
         <ImageView
-            android:id="@+id/HeartIcon"
+            android:id="@+id/heartIcon"
             android:layout_width="@dimen/small_24dp"
             android:layout_height="@dimen/small_24dp"
             android:layout_centerVertical="true"
@@ -76,7 +76,7 @@
             android:layout_marginTop="@dimen/small_8dp"
             android:contentDescription="@string/label_likes"
             android:src="@drawable/comments"
-            app:layout_constraintStart_toEndOf="@id/HeartIcon"
+            app:layout_constraintStart_toEndOf="@id/heartIcon"
             app:layout_constraintTop_toBottomOf="@id/postImg" />
 
         <ImageView
@@ -112,7 +112,7 @@
             android:textSize="@dimen/text_size_14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/HeartIcon"
+            app:layout_constraintTop_toBottomOf="@id/heartIcon"
             tools:text="700" />
 
         <TextView
