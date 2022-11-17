@@ -46,7 +46,7 @@ class PostFragment : Fragment() {
             } else {
                 Snackbar.make(
                     binding.root,
-                    "The camera permission is necessary",
+                    getString(R.string.camera_permission),
                     Snackbar.LENGTH_INDEFINITE
                 ).show()
             }
