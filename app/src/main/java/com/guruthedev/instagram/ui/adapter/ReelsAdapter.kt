@@ -35,7 +35,7 @@ class ReelsAdapter(options: FirebaseRecyclerOptions<Reels?>) :
         fun setData(reel: Reels, context: Context) {
             binding.apply {
                 videoView.setVideoPath(reel.url)
-                tvUsername.text = reel.tittle
+                tvUsername.text = reel.title
                 tvLikesTapCount.text = reel.likes
                 tvComments.text = reel.comments.toString()
                 tvDescription.text = reel.desc
