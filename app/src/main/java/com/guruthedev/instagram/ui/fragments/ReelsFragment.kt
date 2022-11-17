@@ -32,8 +32,7 @@ class ReelsFragment : Fragment() {
         reelsAdapter = ReelsAdapter(viewModel.getOptionsFromDatabase())
         binding.viewPager2.adapter = reelsAdapter
     }
-
-
+    
     override fun onStart() {
         super.onStart()
         reelsAdapter.startListening()
