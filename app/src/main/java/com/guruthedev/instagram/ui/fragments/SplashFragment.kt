@@ -33,7 +33,7 @@ class SplashFragment : Fragment() {
         var isLoggedIn: String?
         //if (SessionPrefHelper.isLoggedIn(igPreference)) {
         lifecycleScope.launch {
-            isLoggedIn = igPreference.read(IS_LOGIN)
+            isLoggedIn = igPreference.read(IS_LOGIN).toString()
             if (isLoggedIn == "true") {
                 activity.navigateTo(R.id.action_splashFragment_to_homeFragment)
                 activity.updateBottomNavVisibility(true)

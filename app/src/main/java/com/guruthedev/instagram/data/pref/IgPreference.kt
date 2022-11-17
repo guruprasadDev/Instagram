@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
@@ -14,7 +15,7 @@ class IgPreference(val context: IgApplication) {
     var preference: SharedPreferences =
         context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
     var editor: SharedPreferences.Editor = preference.edit()
-    val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "user")
+    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "user")
 
      suspend fun save(key: String, value: String) {
         val dataStoreKey = stringPreferencesKey(key)
@@ -23,8 +24,8 @@ class IgPreference(val context: IgApplication) {
         }
     }
 
-     suspend fun read(key: String): String? {
-        val dataStoreKey = stringPreferencesKey(key)
+     suspend fun read(key: String): Boolean? {
+        val dataStoreKey = booleanPreferencesKey(key)
         val preference = context.dataStore.data.first()
         return preference[dataStoreKey]
     }
