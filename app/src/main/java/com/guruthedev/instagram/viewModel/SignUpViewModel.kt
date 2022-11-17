@@ -10,7 +10,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.guruthedev.instagram.IgApplication
 import com.guruthedev.instagram.data.SignUpError
 import com.guruthedev.instagram.data.pref.IgPreference
-import com.guruthedev.instagram.data.pref.SessionPrefHelper
 import com.guruthedev.instagram.utils.SignUpErrorType
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

@@ -32,7 +32,7 @@ class HomeFragment : Fragment() {
         val statusAdapter = StoriesAdapter(getStatus())
         binding.storyRecyclerView.adapter = statusAdapter
 
-        val postAdapter = PostAdapter(getPostList())
+        val postAdapter = PostAdapter<Any>(getPostList())
         binding.recyclerViewHome.adapter = postAdapter
         return binding.root
     }

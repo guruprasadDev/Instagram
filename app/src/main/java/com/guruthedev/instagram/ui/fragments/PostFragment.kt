@@ -40,21 +40,21 @@ class PostFragment : Fragment() {
     private lateinit var imgCaptureExecutor: ExecutorService
 
     private val cameraPermissionResult =
-            registerForActivityResult(ActivityResultContracts.RequestPermission()) { permissionGranted ->
-                if (permissionGranted) {
-                    startCamera()
-                } else {
-                    Snackbar.make(
-                            binding.root,
-                            "The camera permission is necessary",
-                            Snackbar.LENGTH_INDEFINITE
-                    ).show()
-                }
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { permissionGranted ->
+            if (permissionGranted) {
+                startCamera()
+            } else {
+                Snackbar.make(
+                    binding.root,
+                    getString(R.string.camera_permission),
+                    Snackbar.LENGTH_INDEFINITE
+                ).show()
             }
+        }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         binding = FragmentPostBinding.inflate(inflater, container, false)
         return binding.root
@@ -90,7 +90,7 @@ class PostFragment : Fragment() {
         binding.galleryBtn.setOnClickListener {
             view?.let { it1 ->
                 Navigation.findNavController(it1)
-                        .navigate(R.id.action_postFragment_to_galleryFragment)
+                    .navigate(R.id.action_postFragment_to_galleryFragment)
             }
         }
     }
@@ -109,34 +109,36 @@ class PostFragment : Fragment() {
     private fun takePhoto() {
         val imageCapture = imageCapture
         val photoFile = File(
-                outputDirectory,
-                SimpleDateFormat(
-                        Constants.FILE_NAME_FORMAT,
-                        Locale.getDefault()
-                ).format(System.currentTimeMillis()) + ".jpg"
+            outputDirectory,
+            SimpleDateFormat(
+                Constants.FILE_NAME_FORMAT,
+                Locale.getDefault()
+            ).format(System.currentTimeMillis()) + ".jpg"
         )
         val outputOption = ImageCapture.OutputFileOptions.Builder(photoFile).build()
 
         imageCapture.takePicture(
-                outputOption, ContextCompat.getMainExecutor(requireContext()),
-                object : ImageCapture.OnImageSavedCallback {
-                    override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
+            outputOption, ContextCompat.getMainExecutor(requireContext()),
+            object : ImageCapture.OnImageSavedCallback {
+                override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
 
-                        val savedUri = Uri.fromFile(photoFile)
-                        val msg = "Photo Saved"
+                    val savedUri = Uri.fromFile(photoFile)
+                    val msg = "Photo Saved"
 
-                        Toast.makeText(
-                                activity,
-                                "$msg $savedUri",
-                                Toast.LENGTH_SHORT
-                        ).show()
-                    }
+                    Toast.makeText(
+                        activity,
+                        "$msg $savedUri",
+                        Toast.LENGTH_SHORT
+                    ).show()
 
-                    override fun onError(exception: ImageCaptureException) {
-                        Log.e(Constants.TAG, "onError: ${exception.message}", exception)
-                    }
                 }
+
+                override fun onError(exception: ImageCaptureException) {
+                    Log.e(Constants.TAG, "onError: ${exception.message}", exception)
+                }
+            }
         )
+
     }
 
     private fun startCamera() {

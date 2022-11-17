@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_signUpFragment_to_postFragment2"
             app:destination="@id/postFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_reelsFragment"
+            app:destination="@id/reelsFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -31,11 +34,14 @@
         <action
             android:id="@+id/action_loginFragment_to_postFragment"
             app:destination="@id/postFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_reelsFragment"
+            app:destination="@id/reelsFragment" />
     </fragment>
-<!--    <fragment-->
-<!--        android:id="@+id/homeFragment"-->
-<!--        android:name="com.guruthedev.instagram.ui.fragments.HomeFragment"-->
-<!--        android:label="HomeFragment" />-->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.guruthedev.instagram.ui.fragments.HomeFragment"
+        android:label="HomeFragment" />
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.guruthedev.instagram.ui.fragments.SplashFragment"
@@ -49,11 +55,14 @@
         <action
             android:id="@+id/action_splashFragment_to_postFragment2"
             app:destination="@id/postFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_reelsFragment"
+            app:destination="@id/reelsFragment" />
     </fragment>
     <fragment
         android:id="@+id/postFragment"
         android:name="com.guruthedev.instagram.ui.fragments.PostFragment"
-        android:label="PostFragment" >
+        android:label="PostFragment">
         <action
             android:id="@+id/action_postFragment_to_galleryFragment"
             app:destination="@id/galleryFragment" />
@@ -61,13 +70,17 @@
     <fragment
         android:id="@+id/galleryFragment"
         android:name="com.guruthedev.instagram.ui.fragments.GalleryFragment"
-        android:label="GalleryFragment" >
+        android:label="GalleryFragment">
         <action
             android:id="@+id/action_galleryFragment_to_postFragment"
             app:destination="@id/postFragment" />
     </fragment>
-    <!--    <fragment-->
-<!--        android:id="@+id/profileFragment"-->
-<!--        android:name="com.guruthedev.instagram.ui.fragments.ProfileFragment"-->
-<!--        android:label="ProfileFragment" />-->
+    <fragment
+        android:id="@+id/reelsFragment"
+        android:name="com.guruthedev.instagram.ui.fragments.ReelsFragment"
+        android:label="ReelsFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.guruthedev.instagram.ui.fragments.ProfileFragment"
+        android:label="ProfileFragment" />
 </navigation>

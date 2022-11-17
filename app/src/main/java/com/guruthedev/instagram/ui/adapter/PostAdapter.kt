@@ -12,7 +12,7 @@ import com.guruthedev.instagram.utils.loadImageUrl
 import com.guruthedev.instagram.utils.loadImageUrlLogo
 
 
-class PostAdapter(private val postList: ArrayList<Post>) :
+class PostAdapter<T>(private val postList: ArrayList<Post>) :
     RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
     var context: Context? = null
 
@@ -63,4 +63,3 @@ class PostAdapter(private val postList: ArrayList<Post>) :
         val postBinding = binding
     }
 }
-

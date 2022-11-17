@@ -27,7 +27,9 @@ class ProfileFragment : Fragment() {
         binding.fullNameProfileFrag.text = fullName.toString()
         binding.profileFragmentUsername.text = username.toString()
         binding.bioProfileFrag.text = bio.toString()
+        binding.postImages.setOnClickListener {
 
+        }
         return binding.root
     }
 }
