@@ -26,11 +26,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-        binding.storyRecyclerView.layoutManager =
-            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        binding.storyRecyclerView.setHasFixedSize(true)
-        val statusAdapter = StoriesAdapter(getStatus())
-        binding.storyRecyclerView.adapter = statusAdapter
         return binding.root
     }
 
@@ -44,8 +39,14 @@ class HomeFragment : Fragment() {
 
     private fun initView() {
         feedPostAdapter = FeedPostAdapter()
+        val statusAdapter = StoriesAdapter(getStatus())
         binding.recyclerViewHome.apply {
             adapter = feedPostAdapter
+        }
+
+        binding.storyRecyclerView.apply {
+            setHasFixedSize(true)
+            adapter = statusAdapter
         }
     }
 
