@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="instagramPost"
             type="com.guruthedev.instagram.data.Post" />
@@ -19,9 +20,9 @@
             android:layout_height="@dimen/normal_32dp"
             android:layout_marginStart="@dimen/small_16dp"
             android:layout_marginTop="@dimen/small_16dp"
-            app:loadImage="@{instagramPost.logo}"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadImage="@{instagramPost.owner.postImage}" />
 
         <TextView
             android:id="@+id/tvUsername"
@@ -52,18 +53,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_4dp"
-            app:loadImage="@{instagramPost.photo}"
-            app:layout_constraintTop_toBottomOf="@id/imgProfile" />
+            app:layout_constraintTop_toBottomOf="@id/imgProfile"
+            app:loadImageUrl="@{instagramPost.owner.postImage}" />
 
         <ImageView
-            android:id="@+id/HeartIcon"
+            android:id="@+id/heartIcon"
             android:layout_width="@dimen/small_24dp"
             android:layout_height="@dimen/small_24dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/small_16dp"
             android:layout_marginTop="@dimen/small_8dp"
             android:contentDescription="@string/label_likes"
-            android:src="@drawable/heart"
+            android:src="@drawable/fav_border"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/postImg" />
 
@@ -74,18 +75,18 @@
             android:layout_marginStart="@dimen/small_16dp"
             android:layout_marginTop="@dimen/small_8dp"
             android:contentDescription="@string/label_likes"
-            android:src="@drawable/ic_baseline_reply_24"
-            app:layout_constraintStart_toEndOf="@id/HeartIcon"
+            android:src="@drawable/comments"
+            app:layout_constraintStart_toEndOf="@id/heartIcon"
             app:layout_constraintTop_toBottomOf="@id/postImg" />
 
         <ImageView
-            android:id="@+id/send_icon"
-            android:layout_width="@dimen/small_24dp"
-            android:layout_height="@dimen/small_24dp"
+            android:id="@+id/img_send_icon"
+            android:layout_width="@dimen/small_28dp"
+            android:layout_height="@dimen/small_28dp"
             android:layout_marginStart="@dimen/small_16dp"
             android:layout_marginTop="8dp"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/send_icon"
+            android:src="@drawable/ic_send"
             app:layout_constraintStart_toEndOf="@id/replyIcon"
             app:layout_constraintTop_toBottomOf="@id/postImg" />
 
@@ -107,12 +108,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/small_16dp"
             android:layout_marginTop="@dimen/small_16dp"
-            android:text="@{instagramPost.likes}"
             android:textColor="@color/colorGray"
             android:textSize="@dimen/text_size_14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/HeartIcon" />
+            app:layout_constraintTop_toBottomOf="@id/heartIcon"
+            tools:text="700" />
 
         <TextView
             android:id="@+id/description_txt"

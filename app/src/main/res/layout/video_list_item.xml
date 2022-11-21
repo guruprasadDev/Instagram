@@ -125,7 +125,7 @@
             android:layout_marginTop="@dimen/small_16dp"
             android:layout_marginEnd="@dimen/small_20dp"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/send"
+            android:src="@drawable/ic_send"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvComments" />
 

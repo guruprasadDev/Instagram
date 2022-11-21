@@ -13,9 +13,9 @@
             app:destination="@id/loginFragment" />
         <action
             android:id="@+id/action_signUpFragment_to_homeFragment"
-            app:destination="@id/action_signUpFragment_to_postFragment2" />
+            app:destination="@id/action_signUpFragment_to_postFragment" />
         <action
-            android:id="@+id/action_signUpFragment_to_postFragment2"
+            android:id="@+id/action_signUpFragment_to_postFragment"
             app:destination="@id/postFragment" />
         <action
             android:id="@+id/action_signUpFragment_to_reelsFragment"
@@ -50,14 +50,14 @@
             android:id="@+id/action_splashFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
         <action
-            android:id="@+id/action_splashFragment_to_homeFragment"
-            app:destination="@id/action_splashFragment_to_postFragment2" />
-        <action
-            android:id="@+id/action_splashFragment_to_postFragment2"
+            android:id="@+id/action_splashFragment_to_postFragment"
             app:destination="@id/postFragment" />
         <action
             android:id="@+id/action_splashFragment_to_reelsFragment"
             app:destination="@id/reelsFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/postFragment"
