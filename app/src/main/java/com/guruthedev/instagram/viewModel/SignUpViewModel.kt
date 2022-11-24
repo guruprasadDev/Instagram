@@ -14,7 +14,7 @@ import com.guruthedev.instagram.utils.SignUpErrorType
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class SignUpViewModel() : ViewModel() {
+class SignUpViewModel : ViewModel() {
     private val igPreference = IgApplication.instances.getPreference()
     private val firebaseAuth = FirebaseAuth.getInstance()
     private val _taskResponseLiveData = MutableLiveData<Task<AuthResult>>()
@@ -24,7 +24,7 @@ class SignUpViewModel() : ViewModel() {
     val errorLiveData: LiveData<SignUpError>
         get() = _errorLiveData
 
-    private fun signUp(email: String, password: String) {
+    fun signUp(email: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
             igPreference.save(IgPreference.IS_LOGIN, "true")
             firebaseAuth.createUserWithEmailAndPassword(email, password)
