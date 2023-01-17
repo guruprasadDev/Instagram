@@ -13,8 +13,9 @@ import com.guruthedev.instagram.data.pref.IgPreference
 import com.guruthedev.instagram.utils.SignUpErrorType
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SignUpViewModel : ViewModel() {
+class SignUpViewModel @Inject constructor(): ViewModel() {
     private val igPreference = IgApplication.instances.getPreference()
     private val firebaseAuth = FirebaseAuth.getInstance()
     private val _taskResponseLiveData = MutableLiveData<Task<AuthResult>>()

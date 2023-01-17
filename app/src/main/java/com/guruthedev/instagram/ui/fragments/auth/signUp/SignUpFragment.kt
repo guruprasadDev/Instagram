@@ -18,16 +18,20 @@ import com.guruthedev.instagram.extensions.showToast
 import com.guruthedev.instagram.ui.fragments.ProfileFragment
 import com.guruthedev.instagram.utils.SignUpErrorType
 import com.guruthedev.instagram.viewModel.SignUpViewModel
+import dagger.android.support.DaggerFragment
+import javax.inject.Inject
 
-class SignUpFragment : Fragment() {
+class SignUpFragment : DaggerFragment() {
     private lateinit var binding: FragmentSignUpBinding
-    private lateinit var viewModel: SignUpViewModel
+
+    @Inject
+    lateinit var viewModel: SignUpViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSignUpBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this)[SignUpViewModel::class.java]
+       // viewModel = ViewModelProvider(this)[SignUpViewModel::class.java]
         return binding.root
     }
 

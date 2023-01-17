@@ -19,17 +19,21 @@ import com.guruthedev.instagram.extensions.getSpanValues
 import com.guruthedev.instagram.extensions.showToast
 import com.guruthedev.instagram.utils.LoginErrorType
 import com.guruthedev.instagram.viewModel.LoginViewModel
+import dagger.android.support.DaggerFragment
+import javax.inject.Inject
 
-class LoginFragment : Fragment() {
+class LoginFragment : DaggerFragment() {
     private lateinit var binding: FragmentLoginBinding
-    private lateinit var viewModel: LoginViewModel
+
+    @Inject
+    lateinit var viewModel: LoginViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+      //  viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         return binding.root
     }
 

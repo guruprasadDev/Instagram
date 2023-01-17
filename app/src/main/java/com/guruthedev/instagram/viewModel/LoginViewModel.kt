@@ -14,8 +14,9 @@ import com.guruthedev.instagram.data.pref.IgPreference.Companion.IS_LOGIN
 import com.guruthedev.instagram.utils.LoginErrorType
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel @Inject constructor(): ViewModel() {
     private val firebaseAuth = FirebaseAuth.getInstance()
     private val igPreference = IgApplication.instances.getPreference()
     private val _taskResponseLiveData = MutableLiveData<Task<AuthResult>>()
