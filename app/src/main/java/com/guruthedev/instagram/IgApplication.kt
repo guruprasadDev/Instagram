@@ -2,9 +2,12 @@ package com.guruthedev.instagram
 
 import android.app.Application
 import com.guruthedev.instagram.data.pref.IgPreference
+import com.guruthedev.instagram.di.DaggerAppComponent
 import com.guruthedev.instagram.network.NetworkSyncer
+import dagger.android.AndroidInjector
+import dagger.android.DaggerApplication
 
-class IgApplication : Application() {
+class IgApplication : DaggerApplication() {
     private lateinit var preferences: IgPreference
     var isConnectedToInternet: Boolean = false
 
@@ -22,6 +25,10 @@ class IgApplication : Application() {
         networkSyncer.currentNetworkState.observeForever { networkState ->
             isConnectedToInternet = networkState.isConnected
         }
+    }
+
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        return DaggerAppComponent.factory().createApp(this)
     }
 
     fun getPreference(): IgPreference = preferences
