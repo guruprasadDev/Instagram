@@ -6,8 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.guruthedev.instagram.R
 import com.guruthedev.instagram.data.Post
 import com.guruthedev.instagram.databinding.PostListItemBinding
+import javax.inject.Inject
 
-class FeedPostAdapter : RecyclerView.Adapter<FeedPostAdapter.MyViewHolder>() {
+class FeedPostAdapter @Inject constructor() : RecyclerView.Adapter<FeedPostAdapter.MyViewHolder>() {
     private var items = ArrayList<Post>()
     fun setUpdatedData(items: ArrayList<Post>) {
         this.items = items
