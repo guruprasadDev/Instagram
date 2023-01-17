@@ -5,19 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.google.gson.Gson
 import com.guruthedev.instagram.data.InstaStatus
 import com.guruthedev.instagram.databinding.FragmentHomeBinding
 import com.guruthedev.instagram.ui.adapter.FeedPostAdapter
 import com.guruthedev.instagram.ui.adapter.StoriesAdapter
 import com.guruthedev.instagram.viewModel.HomeFragmentViewModel
+import dagger.android.support.DaggerFragment
+import javax.inject.Inject
 
-class HomeFragment : Fragment() {
+
+class HomeFragment : DaggerFragment() {
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var viewModel: HomeFragmentViewModel
-    private var feedPostAdapter: FeedPostAdapter? = null
+
+    @Inject
+    lateinit var viewModel: HomeFragmentViewModel
+
+    @Inject
+    lateinit var feedPostAdapter: FeedPostAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,14 +34,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(HomeFragmentViewModel::class.java)
         initView()
         initObserver()
         newInstance()
     }
 
     private fun initView() {
-        feedPostAdapter = FeedPostAdapter()
         val statusAdapter = StoriesAdapter(getStatus())
         binding.recyclerViewHome.apply {
             adapter = feedPostAdapter
@@ -51,7 +54,7 @@ class HomeFragment : Fragment() {
     private fun initObserver() {
         viewModel.getPostResponse().observe(viewLifecycleOwner) { post ->
             post?.let { instaPost ->
-                feedPostAdapter?.setUpdatedData(instaPost.items)
+                feedPostAdapter.setUpdatedData(instaPost.items)
             } ?: run {
                 Toast.makeText(activity, "Error in getting data", Toast.LENGTH_SHORT).show()
             }
@@ -74,3 +77,4 @@ class HomeFragment : Fragment() {
         fun newInstance() = HomeFragment()
     }
 }
+
